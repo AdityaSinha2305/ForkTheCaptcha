@@ -1,6 +1,7 @@
 # ForkTheCaptcha
 
 Welcome to ForkTheCaptcha! 🎉
+<br>
 This repository is a simple web project made with HTML, CSS, and JavaScript where a CAPTCHA is displayed to verify user interaction. Feel free to explore, contribute, and fork it for Hacktoberfest 2024! 🚀
 
 <br>
@@ -13,7 +14,6 @@ CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Ap
 ## 🌟 Features
 - Dynamically generated CAPTCHA.
 - Simple and clean UI.
-- Responsive design.
 - Designed for beginners to learn and contribute during Hacktoberfest 2024!
 
 <br> 
@@ -83,6 +83,41 @@ git push origin your-feature-branch
 ```
 
 7. Open a pull request and we'll review it!
+
+<br>
+
+## 🛡️ Contribution Rules
+To ensure a smooth contribution process, please follow these rules:
+- **Create a separate branch** for each feature or fix to keep changes isolated.
+- **Write clear and descriptive commit messages.**
+- **Test** your changes before submitting a pull request.
+- **Do not** add any build steps, e.g., npm install (I want to keep this repo simple and static)
+- **Do not** remove other contents.
+- **Try to keep pull requests small to minimize merge conflicts.**
+- **Be respectful and constructive in your pull request comments and reviews.**
+
+<br>
+
+## 🔄 Sync Your Fork to Avoid Conflicts
+To avoid merge conflicts, ensure your fork is up-to-date with the original repository before making any changes. Here’s how to sync your fork:
+
+1. Add the original repository as a remote (if not already added):
+```terminal
+git remote add upstream https://github.com/AdityaSinha2305/ForkTheCaptcha.git
+```
+
+2. Merge the changes into your local fork:
+```terminal
+git checkout main
+git pull upstream main
+```
+
+3. Push the updated main branch to your fork:
+```terminal
+git push origin main
+```
+
+After syncing, you can create a new branch from the updated main branch or can merge this updated main branch into your feature branch and start working on your changes!
 
 <br>
 
