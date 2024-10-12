@@ -62,9 +62,17 @@ body
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /*position: relative;*/ /* To control the position of inner elements */
+    position: relative; /* To control the position of inner elements */
 }
 
+.captchabg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    top: 0;
+    left: 0;
+}
 
 .securityCode p
 {
@@ -77,10 +85,11 @@ body
     font-weight: bold;
     letter-spacing: 10px;
     user-select: none;
+    z-index: 1;
 }
 .icons
 {
-    
+    z-index: 1;
     bottom:0;
     right: 5px;
     display: flex;
@@ -89,7 +98,7 @@ body
 }
 .icons .fas
 {
-    color: #040404;
+    color: #ffffff;
     font-size: 1.rem;
     padding: 10px 5px;
     cursor: pointer;
