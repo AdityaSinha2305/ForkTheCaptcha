@@ -35,19 +35,28 @@ body
     background:#FFF;
     display: flex;
     flex-direction: column;
+    height: 100%;
     border-radius: 20px;
     font-family:"Poppins" , sans-serif;
     position: relative;
 }
 .header{
+    height: 15%;
     background: #037AE2;
     color: #fff;
-    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
     width: 100%;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 20px 20px 0 0;
-    padding:15px;
-    
+}
+
+.header b{
+    font-size: 8vh;
+    margin: 0;
+    padding: 0;
 }
 
 .securityCode
@@ -71,8 +80,8 @@ body
     text-align: center;
     /*line-height: 250px;
     /* color: #fff; */
-    color: #e63e3e;
-    font-family:"Montserrat" ,sans-serif;
+    /* color: #e63e3e;
+    font-family:"Montserrat" ,sans-serif; */
     font-size: 5vw;
     font-weight: bold;
     letter-spacing: 10px;
@@ -102,7 +111,7 @@ body
 .userInput
 {
     width: 100%;
-    padding: 20px;
+    padding-bottom: 10px;
     display: flex;
     justify-content: center;
 }
@@ -141,11 +150,10 @@ body
 }
 #start-btn 
 {
-    height: 65px;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
     margin-bottom: 10px;
-    font-size: 40px;
+    font-size: 4vh;
     border-radius: 5px;
     cursor: pointer;
     border-style: outset;
@@ -154,6 +162,36 @@ body
 
 #instructions
 {
-    font-size: 20px;
+    font-size: 2vw;
+    color: grey;
     text-align: center;
+    background-color: transparent;
+    margin-bottom: 10px;
+}
+
+.container-fluid{
+    margin: 0;
+    padding: 0;
+    width: 50%;
+}
+
+#code{
+    background-color: rgba(78, 78, 78, 0.541);
+    margin-top: 2vw;
+    padding: 3%;
+    border-radius: 3px;
+    font-size: 7vh;
+}
+
+i{
+    font-size: 20px;
+    margin: 0;
+}
+
+#textbox,.btn{
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 10px 0;
 }
