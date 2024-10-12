@@ -49,6 +49,7 @@ body
     padding:15px;
     position: absolute;
 }
+
 .securityCode
 {
     width: 100%;
@@ -57,7 +58,6 @@ body
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
     position: relative; /* To control the position of inner elements */
 }
 
