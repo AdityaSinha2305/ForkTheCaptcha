@@ -52,7 +52,7 @@ cd ForkTheCaptcha
 <br>
 
 ## 🧑‍💻 How to Contribute
-We'd love for you to contribute to ForkTheCaptcha and make it better! You can add new features, make desgin responsive, fix any issue or bug.
+We'd love for you to contribute to ForkTheCaptcha and make it better! You can add new features, make desgin responsive, fix any issue or bug, change styling as long as code doesn't break!
 
 To contribute:
 
