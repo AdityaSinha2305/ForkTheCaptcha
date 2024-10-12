@@ -52,7 +52,9 @@ cd ForkTheCaptcha
 <br>
 
 ## 🧑‍💻 How to Contribute
-We'd love for you to contribute to ForkTheCaptcha and make it better! You can:
+We'd love for you to contribute to ForkTheCaptcha and make it better! You can add new features, make desgin responsive, fix any issue or bug.
+
+To contribute:
 
 1. Fork & Star⭐ this repository : [https://github.com/AdityaSinha2305/ForkTheCaptcha.git](https://github.com/AdityaSinha2305/ForkTheCaptcha.git)
 

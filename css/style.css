@@ -1,0 +1,129 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    background-image: url("/assests/img1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background: #1A1D2B;*/
+}
+.captcha-container
+{
+    /* min-width: 50%; */
+    /* max-width: 50%; */
+    background:#FFF;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    font-family:"Poppins" , sans-serif;
+}
+.header{
+    background: #037AE2;
+    color: #fff;
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+    padding:15px;
+}
+.securityCode
+{
+    width: 100%;
+    height: 250px;
+    background:url(/assests/img2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.securityCode p
+{
+    text-align: center;
+    line-height: 250px;
+    color: #fff;
+    font-family:"Montserrat" ,sans-serif;
+    font-size: 5vw;
+    font-weight: bold;
+    letter-spacing: 10px;
+    user-select: none;
+}
+.icons
+{
+    position:absolute;
+    bottom:0;
+    right: 5px;
+}
+.icons .fas
+{
+    color: #fff;
+    font-size: 1.rem;
+    padding: 10px 5px;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+.icons .fas:hover
+{
+    color: #037AE2;
+}
+.userInput
+{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+.userInput input
+{
+    border-radius: 20px 0 0 20px;
+    outline: none;
+    border: solid 1px gray;
+    border-right: none;
+    padding: 12px;
+    width: 60%;
+    font-size: 1.2rem;
+}
+.userInput .btn
+{
+    border: none;
+    outline: none;
+    background: #037AE2;
+    color: #fff;
+    padding: 12px;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    transition: 0.15s ease;
+    font-size: 1.2rem;
+}
+.userInput .btn:hover
+{
+    background: #036CC9;
+}
+
+#start-btn 
+{
+    height: 85px;
+    /* width: 300px; */
+    text-align: center;
+    padding: 10px;
+    margin-left: 90px;
+    margin-top: 20px;
+    margin-bottom: 15px;;  
+    border-style: inset;
+    border-width: 10px;
+    font-size: 40px;
+}
+
+#instructions
+{
+    font-size: 20px;
+    text-align: center;
+}
