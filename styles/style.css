@@ -1,11 +1,9 @@
-*{
-    margin:0;
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body
-{
-    /* background-image: url('assets/img1.jpg'); */
+body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -13,94 +11,76 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
-    /*background: #1A1D2B;*/
 }
 
-/* For background image */
 .bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image covers the entire viewport */
-    z-index: -1; /* Places the image behind all other content */
+    object-fit: cover; 
+    z-index: -1; 
 }
 
-
-.captcha-container
-{
-    /* min-width: 50%; */
-    /* max-width: 50%; */
-    background:#FFF;
+.captcha-container {
+    background: #FFF;
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    font-family:"Poppins" , sans-serif;
+    font-family: "Poppins", sans-serif;
     position: relative;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
-.header{
+
+.header {
     background: #037AE2;
     color: #fff;
     font-size: 1.5rem;
-    width: 100%;
     text-align: center;
-    border-radius: 20px 20px 0 0;
-    padding:15px;
-    position: absolute;
+    border-radius: 20px;
+    padding: 15px;
 }
 
-.securityCode
-{
+.securityCode {
     width: 100%;
     height: 250px;
-    /* background:url('assets/img2.jpg'); */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative; /* To control the position of inner elements */
+    position: relative; 
 }
 
+.securityCode img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
 
-.securityCode p
-{
-    text-align: center;
-    line-height: 250px;
-    /* color: #fff; */
-    color: #e63e3e;
-    font-family:"Montserrat" ,sans-serif;
-    font-size: 5vw;
-    font-weight: bold;
-    letter-spacing: 10px;
-    user-select: none;
+.icons {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
-.icons
-{
-    position:absolute;
-    bottom:0;
-    right: 5px;
-}
-.icons .fas
-{
+
+.icons .fas {
     color: #040404;
-    font-size: 1.rem;
-    padding: 10px 5px;
+    font-size: 1.5rem;
+    padding: 10px;
     cursor: pointer;
     transition: 0.15s ease;
 }
-.icons .fas:hover
-{
+
+.icons .fas:hover {
     color: #037AE2;
 }
-.userInput
-{
+
+.userInput {
     width: 100%;
-    padding: 20px;
     display: flex;
     justify-content: center;
+    padding: 10px 0;
 }
-.userInput input
-{
+
+.userInput input {
     border-radius: 20px 0 0 20px;
     outline: none;
     border: solid 1px gray;
@@ -109,8 +89,8 @@ body
     width: 60%;
     font-size: 1.2rem;
 }
-.userInput .btn
-{
+
+.userInput .btn {
     border: none;
     outline: none;
     background: #037AE2;
@@ -121,27 +101,31 @@ body
     transition: 0.15s ease;
     font-size: 1.2rem;
 }
-.userInput .btn:hover
-{
+
+.userInput .btn:hover {
     background: #036CC9;
 }
 
-#start-btn 
-{
-    height: 85px;
-    /* width: 300px; */
+#start-btn {
+    height: 60px;
     text-align: center;
     padding: 10px;
-    margin-left: 90px;
-    margin-top: 20px;
-    margin-bottom: 15px;;  
-    border-style: inset;
-    border-width: 10px;
-    font-size: 40px;
+    margin: 20px 0;
+    background-color: #007BFF; /* Blue background */
+    border: none;
+    color: white;
+    font-size: 24px;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-#instructions
-{
+#start-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#instructions {
     font-size: 20px;
     text-align: center;
+    margin-top: 10px;
 }
