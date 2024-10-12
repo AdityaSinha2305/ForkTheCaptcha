@@ -5,7 +5,7 @@
 }
 body
 {
-    background-image: url("/assests/img1.jpg");
+    background-image: url("/assets/img1.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -38,7 +38,7 @@ body
 {
     width: 100%;
     height: 250px;
-    background:url(/assests/img2.jpg);
+    background:url(/assets/img2.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

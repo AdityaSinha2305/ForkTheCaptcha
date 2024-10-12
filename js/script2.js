@@ -1,3 +1,4 @@
+// For voice recognition
 var speechRecognition = window.webkitSpeechRecognition
 
 var  recogniton =  new speechRecognition();
