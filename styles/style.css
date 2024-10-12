@@ -47,25 +47,28 @@ body
     text-align: center;
     border-radius: 20px 20px 0 0;
     padding:15px;
-    position: absolute;
+    
 }
 .securityCode
 {
     width: 100%;
-    height: 250px;
+    /*height: 250px;
     /* background:url('assets/img2.jpg'); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
-    position: relative; /* To control the position of inner elements */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /*position: relative; /* To control the position of inner elements */
 }
 
 
 .securityCode p
 {
     text-align: center;
-    line-height: 250px;
+    /*line-height: 250px;
     /* color: #fff; */
     color: #e63e3e;
     font-family:"Montserrat" ,sans-serif;
@@ -76,9 +79,12 @@ body
 }
 .icons
 {
-    position:absolute;
+    
     bottom:0;
     right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .icons .fas
 {
@@ -126,18 +132,23 @@ body
     background: #036CC9;
 }
 
+.form-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 #start-btn 
 {
-    height: 85px;
-    /* width: 300px; */
+    height: 65px;
     text-align: center;
     padding: 10px;
-    margin-left: 90px;
-    margin-top: 20px;
-    margin-bottom: 15px;;  
-    border-style: inset;
-    border-width: 10px;
+    margin-bottom: 10px;
     font-size: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    border-style: outset;
+    border-width: 2px;
 }
 
 #instructions
