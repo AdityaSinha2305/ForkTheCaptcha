@@ -40,6 +40,40 @@ function speakCaptcha()
   return text;
 }
 
+// For speech recognition
+function spkstart() {
+  console.log("Listening...");
+  var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+  recognition.lang = "en-GB";
+  
+  recognition.onresult = function(event) {
+      let val = event.results[0][0].transcript;
+      console.log("Recognized:", val);
+
+      if (val === '') {
+          responsiveVoice.speak("Didn't recognize the voice. Please try again.");
+      } else if (val.trim() === code.textContent) {
+          responsiveVoice.speak("Valid Captcha");
+      } else {
+          responsiveVoice.speak("Invalid Captcha");
+      }
+  };
+
+  recognition.onerror = function(event) {
+      console.error("Speech Recognition Error:", event.error);
+      responsiveVoice.speak("An error occurred during speech recognition.");
+  };
+
+  recognition.onnomatch = function() {
+      console.log("No match found");
+      responsiveVoice.speak("No match found, please try again.");
+  };
+
+  recognition.start();
+  console.log("Recognition started...");
+}
+
+
 
 //TEXT TO SPEECH RECOGNITION
 submitbtn.addEventListener('click' , () => {
@@ -69,5 +103,7 @@ readTextBtn.addEventListener('click',() => {
     responsiveVoice.speak("Please repeat the captcha");
     
 })
+
+
 
   
