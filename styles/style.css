@@ -10,10 +10,11 @@ body
     background-attachment: fixed;
     background-size: cover;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /*background: #1A1D2B;*/
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    background: #1A1D2B;
+    
 }
 
 /* For background image */
@@ -38,6 +39,8 @@ body
     border-radius: 20px;
     font-family:"Poppins" , sans-serif;
     position: relative;
+    padding: 30vh;
+
 }
 .header{
     background: #037AE2;
@@ -170,4 +173,44 @@ body
     background-color: rgb(71, 255, 117);
     font-size: 20px;
     text-align: center;
+}
+
+
+
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    margin-top: 10px;
+    font-size: 14px;
 }
