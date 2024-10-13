@@ -90,13 +90,25 @@ function createCaptcha() {
 }
 
 // For speaking the captcha
+// For speaking the captcha
 function speakCaptcha() {
   let text = "";
-  for (let i = 0; i <= code.textContent.length; i++) {
-    text += code.textContent.charAt(i) + " ";
+  for (let i = 0; i < code.textContent.length; i++) {
+    let char = code.textContent.charAt(i);
+    if (char.match(/[A-Z]/)) {
+      // If it's an uppercase letter, specify it's capital
+      text += "Capital " + char + " ";
+    } else if (char.match(/[a-z]/)) {
+      // If it's a lowercase letter
+      text += "Small " + char + " ";
+    } else {
+      // If it's a digit or symbol, just speak the character
+      text += char + " ";
+    }
   }
   return text;
 }
+
 
 //TEXT TO SPEECH RECOGNITION
 submitbtn.addEventListener("click", () => {
@@ -117,6 +129,7 @@ submitbtn.addEventListener("click", () => {
   }
 });
 
+// Button to read the CAPTCHA aloud with capital/small letter identification
 readTextBtn.addEventListener("click", () => {
   let tex = speakCaptcha();
   responsiveVoice.setDefaultVoice("US English Female");
