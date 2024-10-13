@@ -130,3 +130,7 @@ This project is participating in Hacktoberfest 2024. Contribute to this reposito
 
 ## 📄 License
 This project is open source and available under the MIT License.
+
+<br>
+
+## 🎊 Don't forget to explore the other interesting [repo](https://github.com/AdityaSinha2305) !!
