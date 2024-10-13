@@ -163,6 +163,11 @@ body
 
 #instructions
 {
+    margin-top: 8px;
+    padding: 4px;
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+    background-color: rgb(71, 255, 117);
     font-size: 20px;
     text-align: center;
 }
