@@ -152,13 +152,22 @@ body
 {
     height: 65px;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     margin-bottom: 10px;
-    font-size: 40px;
-    border-radius: 5px;
+    font-size: 30px;
+    border-radius: 10px;
     cursor: pointer;
-    border-style: outset;
-    border-width: 2px;
+    border-style: none;
+    border-width: 1px;
+    background-color: #037AE2;
+    color: #ffffff;
+}
+
+#start-btn:hover
+{
+    background-color: #ffffff;
+    color: #037AE2;
+    border: solid #037AE2;
 }
 
 #instructions
