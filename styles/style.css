@@ -150,6 +150,12 @@ body {
     color: white;
     border: 2px solid #e63946;
     transition: background 0.3s ease, transform 0.3s ease;
+
+#start-btn:hover
+{
+    background-color: #ffffff;
+    color: #037AE2;
+    border: solid #037AE2;
 }
 
 #start-btn:hover {
@@ -224,3 +230,20 @@ body {
         height: 55px;
     }
 }
+
+    #code{
+        font-size: 14vw;
+    }
+   
+}
+
+@media (max-width: 480px) {
+    .securityCode p {
+        font-size: 8vw; /* Further adjust for very small screens */
+    }
+
+    .icons .fas {
+        font-size: 1.2rem; /* Adjust icon size */
+    }
+}
+
