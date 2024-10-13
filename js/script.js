@@ -49,7 +49,7 @@ function spkstart() {
   recognition.onresult = function(event) {
       let val = event.results[0][0].transcript;
       console.log("Recognized:", val);
-
+      document.getElementById("textbox").value = val;
       if (val === '') {
           responsiveVoice.speak("Didn't recognize the voice. Please try again.");
       } else if (val.trim() === code.textContent) {
