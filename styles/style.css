@@ -28,6 +28,59 @@ body
 }
 
 
+
+.navbar {
+    background-color: #333; /* Change this to your preferred color */
+    width: 100%; /* Full width */
+    padding: 15px;
+    position: absolute; /* Stick it to the top */
+    top: 0;
+    left: 0;
+    z-index: 10; /* Ensure it's above other content */
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Optional max width */
+    margin: auto; /* Center it */
+}
+
+.navbar-brand {
+    color: #fff; /* Text color for brand */
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.navbar-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.navbar-links a {
+    color: #fff; /* Link text color */
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+
+
+
+
+
+
+
 .captcha-container
 {
     /* min-width: 50%; */
