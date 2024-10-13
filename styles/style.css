@@ -221,3 +221,105 @@ body
         font-size: 1.2rem; /* Adjust icon size */
     }
 }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures the navbar stays on top */
+}
+
+.navbar .logo a {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.nav-links a:hover {
+    color: #ddd;
+}
+
+.menu-icon {
+    display: none; /* Hiding this for now, can be added later for mobile view */
+    cursor: pointer;
+}
+
+.menu-icon i {
+    font-size: 24px;
+    color: white;
+}
+
+/* Padding for body to avoid overlap with fixed navbar */
+body {
+    padding-top: 60px; /* Adjust based on navbar height */
+}
+
+/* Responsive Behaviour */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start; /* Align items to the start */
+        padding: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack links vertically */
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .nav-links li {
+        margin: 5px 0; /* Add space between links */
+    }
+
+    .navbar .logo a {
+        font-size: 20px; /* Adjust logo size for smaller screens */
+    }
+    
+    .menu-icon {
+        display: block; /* Show menu icon for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 5px;
+    }
+
+    .navbar .logo a {
+        font-size: 18px; /* Further adjust logo size */
+    }
+
+    .nav-links a {
+        font-size: 16px; /* Adjust link font size */
+    }
+
+    #start-btn {
+        font-size: 24px; /* Adjust start button size */
+        width: 250px; 
+    }
+}
