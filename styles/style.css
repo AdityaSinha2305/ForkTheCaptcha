@@ -205,13 +205,22 @@ body
 {
     height: 65px;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     margin-bottom: 10px;
-    font-size: 40px;
-    border-radius: 5px;
+    font-size: 30px;
+    border-radius: 10px;
     cursor: pointer;
-    border-style: outset;
-    border-width: 2px;
+    border-style: none;
+    border-width: 1px;
+    background-color: #037AE2;
+    color: #ffffff;
+}
+
+#start-btn:hover
+{
+    background-color: #ffffff;
+    color: #037AE2;
+    border: solid #037AE2;
 }
 
 #instructions
@@ -223,4 +232,45 @@ body
     background-color: rgb(71, 255, 117);
     font-size: 20px;
     text-align: center;
+}
+
+/* Responsive Behaviour */
+
+@media (max-width: 768px) {
+    body{
+        height: inherit;
+        margin-top: 30%;
+    }
+
+    .container-fluid{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .header {
+        font-size: 1.5rem; /* Reduce header font size */
+    }
+
+
+    #start-btn {
+        font-size: 24px;
+        width: 250px; 
+    }
+
+    #instructions p{
+        font-size: 35px; 
+    }
+    #code{
+        font-size: 14vw;
+    }
+   
+}
+
+@media (max-width: 480px) {
+    .securityCode p {
+        font-size: 8vw; /* Further adjust for very small screens */
+    }
+
+    .icons .fas {
+        font-size: 1.2rem; /* Adjust icon size */
+    }
 }
