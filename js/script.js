@@ -122,15 +122,14 @@ function validcaptcha() {
   }
 }
 
-
 //TEXT TO SPEECH RECOGNITION
 submitbtn.addEventListener("click", () => {
   validcaptcha();
 });
 
 //for keydown===enter case
-input.addEventListener('keydown', function (event) {
-  if (event.key === 'Enter') {
+input.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
     validcaptcha();
   }
 });
@@ -150,6 +149,4 @@ changeTextBtn.addEventListener("click", () => {
   // Clear the value of the 'input' element to reset the input box
   input.value = "";
 });
-
-
 
