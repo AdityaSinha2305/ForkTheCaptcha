@@ -3,6 +3,14 @@ const readTextBtn = document.querySelector(".readText");
 const code = document.querySelector("#code");
 const input = document.querySelector(".userInput input");
 const submitbtn = document.querySelector(".btn");
+const menuIcon = document.querySelector('.menu-icon');
+const navLinks = document.querySelector('.nav-links');
+
+menuIcon.addEventListener('click', () => {
+    navLinks.classList.toggle('expanded');
+    navLinks.classList.toggle('collapsed');
+});
+
 
 changeTextBtn.addEventListener("click", () => {
   code.textContent = createCaptcha();
