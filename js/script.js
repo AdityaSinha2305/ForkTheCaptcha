@@ -111,23 +111,27 @@ function speakCaptcha() {
 
 
 //TEXT TO SPEECH RECOGNITION
+//TEXT TO SPEECH RECOGNITION
 submitbtn.addEventListener("click", () => {
+  validcaptcha(); // Call the validcaptcha function to check the CAPTCHA validity
+});
+
+//to check whether entered captcha is valid
+function validcaptcha() {
   responsiveVoice.setDefaultVoice("US English Female");
   responsiveVoice.setDefaultRate(0.75);
   let val = input.value;
   if (val == "") {
-    //  alert('Please Enter the Text.');
     responsiveVoice.speak("Please Enter the Captcha");
   } else if (val == code.textContent) {
-    //  alert('Valid Code');
     responsiveVoice.speak("Valid Captcha");
     confirm("Captcha is correct! Do you want to proceed?");
   } else {
-    //  alert('Invalid Code');
     responsiveVoice.speak("Invalid Captcha");
     confirm("Captcha is incorrect, please try again.");
   }
-});
+}
+
 
 // Button to read the CAPTCHA aloud with capital/small letter identification
 readTextBtn.addEventListener("click", () => {
