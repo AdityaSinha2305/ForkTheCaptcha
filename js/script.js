@@ -104,18 +104,36 @@ function validcaptcha() {
   responsiveVoice.setDefaultRate(0.75);
   let val = input.value;
   if (val == "") {
+    swal({
+      title: "CAPTCHA NOT FOUND!",
+      text: "Please enter the Text!",
+      icon: "error",
+      button: "Retry",
+    });
     //  alert('Please Enter the Text.');
     responsiveVoice.speak("Please Enter the Captcha");
   } else if (val == code.textContent) {
+    swal({
+      title: "VALID CAPTCHA!",
+      text: "The captcha entered is valid!",
+      icon: "success",
+      button: "Proceed",
+    });
     //  alert('Valid Code');
     responsiveVoice.speak("Valid Captcha");
-    confirm("Captcha is correct! Do you want to proceed?");
+    // confirm("Captcha is correct! Do you want to proceed?");
     code.textContent = createCaptcha();
     input.value = "";
   } else {
+    swal({
+      title: "CAPTCHA INVALID!",
+      text: "Please enter correct text!",
+      icon: "error",
+      button: "Retry",
+    });
     //  alert('Invalid Code');
     responsiveVoice.speak("Invalid Captcha");
-    confirm("Captcha is incorrect, please try again.");
+    // confirm("Captcha is incorrect, please try again.");
     code.textContent = createCaptcha();
     input.value = "";
   }
