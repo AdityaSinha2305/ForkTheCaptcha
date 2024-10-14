@@ -90,28 +90,33 @@ function createCaptcha() {
 }
 
 // For speaking the captcha
-// For speaking the captcha with case distinction
+// For speaking the captcha
 function speakCaptcha() {
   let text = "";
   for (let i = 0; i < code.textContent.length; i++) {
     let char = code.textContent.charAt(i);
-    if (char >= 'A' && char <= 'Z') {
-      text += "Capital " + char + " ";  // Add "Capital" before uppercase letters
-    } else if (char >= 'a' && char <= 'z') {
-      text += "Small " + char + " ";  // Add "Lowercase" before lowercase letters
+    if (char.match(/[A-Z]/)) {
+      // If it's an uppercase letter, specify it's capital
+      text += "Capital " + char + " ";
+    } else if (char.match(/[a-z]/)) {
+      // If it's a lowercase letter
+      text += "Small " + char + " ";
     } else {
-      text += char + " ";  // For numbers or special characters
+      // If it's a digit or symbol, just speak the character
+      text += char + " ";
     }
   }
   return text;
 }
 
+
+//TEXT TO SPEECH RECOGNITION
 //TEXT TO SPEECH RECOGNITION
 submitbtn.addEventListener("click", () => {
   validcaptcha(); // Call the validcaptcha function to check the CAPTCHA validity
 });
 
-// to check whether entered captcha is valid
+//to check whether entered captcha is valid
 function validcaptcha() {
   responsiveVoice.setDefaultVoice("US English Female");
   responsiveVoice.setDefaultRate(0.75);
@@ -127,7 +132,8 @@ function validcaptcha() {
   }
 }
 
-// For reading the CAPTCHA aloud with uppercase/lowercase distinctions
+
+// Button to read the CAPTCHA aloud with capital/small letter identification
 readTextBtn.addEventListener("click", () => {
   let tex = speakCaptcha();
   responsiveVoice.setDefaultVoice("US English Female");
@@ -135,14 +141,6 @@ readTextBtn.addEventListener("click", () => {
   responsiveVoice.speak(tex);
   responsiveVoice.speak("Please repeat the captcha");
 });
-
-// for keydown===enter case
-input.addEventListener('keydown', function(event){
-  if (event.key === 'Enter') {
-    validcaptcha();
-  }
-});
-
 
 // Add an event listener to the 'changeTextBtn' button for the 'click' event
 changeTextBtn.addEventListener("click", () => {
