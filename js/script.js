@@ -99,7 +99,7 @@ function speakCaptcha() {
 }
 
 //to check whether entered captcha is valid
-function validcaptcha(){
+function validcaptcha() {
   responsiveVoice.setDefaultVoice("US English Female");
   responsiveVoice.setDefaultRate(0.75);
   let val = input.value;
@@ -110,13 +110,16 @@ function validcaptcha(){
     //  alert('Valid Code');
     responsiveVoice.speak("Valid Captcha");
     confirm("Captcha is correct! Do you want to proceed?");
+    code.textContent = createCaptcha();
+    input.value = "";
   } else {
     //  alert('Invalid Code');
     responsiveVoice.speak("Invalid Captcha");
     confirm("Captcha is incorrect, please try again.");
-  } 
+    code.textContent = createCaptcha();
+    input.value = "";
+  }
 }
-
 
 //TEXT TO SPEECH RECOGNITION
 submitbtn.addEventListener("click", () => {
@@ -124,9 +127,10 @@ submitbtn.addEventListener("click", () => {
 });
 
 //for keydown===enter case
-input.addEventListener('keydown', function(event){
-  if(event.key==='Enter'){
-  validcaptcha();}
+input.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    validcaptcha();
+  }
 });
 
 readTextBtn.addEventListener("click", () => {
@@ -144,4 +148,3 @@ changeTextBtn.addEventListener("click", () => {
   // Clear the value of the 'input' element to reset the input box
   input.value = "";
 });
-
