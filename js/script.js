@@ -90,45 +90,44 @@ function createCaptcha() {
 }
 
 // For speaking the captcha
+// For speaking the captcha with case distinction
 function speakCaptcha() {
   let text = "";
-  for (let i = 0; i <= code.textContent.length; i++) {
-    text += code.textContent.charAt(i) + " ";
+  for (let i = 0; i < code.textContent.length; i++) {
+    let char = code.textContent.charAt(i);
+    if (char >= 'A' && char <= 'Z') {
+      text += "Capital " + char + " ";  // Add "Capital" before uppercase letters
+    } else if (char >= 'a' && char <= 'z') {
+      text += "Small " + char + " ";  // Add "Lowercase" before lowercase letters
+    } else {
+      text += char + " ";  // For numbers or special characters
+    }
   }
   return text;
 }
 
-//to check whether entered captcha is valid
-function validcaptcha(){
+//TEXT TO SPEECH RECOGNITION
+submitbtn.addEventListener("click", () => {
+  validcaptcha(); // Call the validcaptcha function to check the CAPTCHA validity
+});
+
+// to check whether entered captcha is valid
+function validcaptcha() {
   responsiveVoice.setDefaultVoice("US English Female");
   responsiveVoice.setDefaultRate(0.75);
   let val = input.value;
   if (val == "") {
-    //  alert('Please Enter the Text.');
     responsiveVoice.speak("Please Enter the Captcha");
   } else if (val == code.textContent) {
-    //  alert('Valid Code');
     responsiveVoice.speak("Valid Captcha");
     confirm("Captcha is correct! Do you want to proceed?");
   } else {
-    //  alert('Invalid Code');
     responsiveVoice.speak("Invalid Captcha");
     confirm("Captcha is incorrect, please try again.");
-  } 
+  }
 }
 
-
-//TEXT TO SPEECH RECOGNITION
-submitbtn.addEventListener("click", () => {
-  validcaptcha();
-});
-
-//for keydown===enter case
-input.addEventListener('keydown', function(event){
-  if(event.key==='Enter'){
-  validcaptcha();}
-});
-
+// For reading the CAPTCHA aloud with uppercase/lowercase distinctions
 readTextBtn.addEventListener("click", () => {
   let tex = speakCaptcha();
   responsiveVoice.setDefaultVoice("US English Female");
@@ -136,6 +135,14 @@ readTextBtn.addEventListener("click", () => {
   responsiveVoice.speak(tex);
   responsiveVoice.speak("Please repeat the captcha");
 });
+
+// for keydown===enter case
+input.addEventListener('keydown', function(event){
+  if (event.key === 'Enter') {
+    validcaptcha();
+  }
+});
+
 
 // Add an event listener to the 'changeTextBtn' button for the 'click' event
 changeTextBtn.addEventListener("click", () => {
