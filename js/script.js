@@ -3,6 +3,7 @@ const readTextBtn = document.querySelector(".readText");
 const code = document.querySelector("#code");
 const input = document.querySelector(".userInput input");
 const submitbtn = document.querySelector(".btn");
+const loginButton = document.getElementById("login-button")
 
 changeTextBtn.addEventListener("click", () => {
   code.textContent = createCaptcha();
@@ -109,15 +110,15 @@ function validcaptcha() {
   } else if (val == code.textContent) {
     //  alert('Valid Code');
     responsiveVoice.speak("Valid Captcha");
-    confirm("Captcha is correct! Do you want to proceed?");
-    code.textContent = createCaptcha();
-    input.value = "";
+    const userResponse = confirm("Captcha is correct! Do you want to proceed?");
+    if (userResponse === true) {
+
+      window.location.href = "login.html"
+    }
   } else {
     //  alert('Invalid Code');
     responsiveVoice.speak("Invalid Captcha");
     confirm("Captcha is incorrect, please try again.");
-    code.textContent = createCaptcha();
-    input.value = "";
   }
 }
 
@@ -148,3 +149,4 @@ changeTextBtn.addEventListener("click", () => {
   // Clear the value of the 'input' element to reset the input box
   input.value = "";
 });
+
