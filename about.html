@@ -12,6 +12,16 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuIcon = document.querySelector(".menu-icon");
+        const navLinks = document.querySelector(".nav-links");
+
+        menuIcon.addEventListener("click", function () {
+          navLinks.classList.toggle("show");
+        });
+      });
+    </script>
   </head>
   <body>
     <nav class="navbar">
@@ -21,7 +31,7 @@
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="#">Contributors</a></li>
-        <li><a href="about.html">About </a></li>
+        <li><a href="about.html">About</a></li>
       </ul>
       <div class="menu-icon">
         <i class="fas fa-bars"></i>
@@ -49,7 +59,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 ForkTheCaptcha. All rights reserved.</p>
+      <p>&copy; 2024 ForkTheCaptcha. All rights reserved.</p>
     </footer>
   </body>
 </html>
