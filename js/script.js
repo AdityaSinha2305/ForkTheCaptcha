@@ -116,7 +116,6 @@ function validcaptcha() {
       icon: "error",
       button: "Retry",
     });
-    //  alert('Please Enter the Text.');
     responsiveVoice.speak("Please Enter the Captcha");
   } else if (val == code.textContent) {
     swal({
@@ -125,11 +124,9 @@ function validcaptcha() {
       icon: "success",
       button: "Proceed",
     });
-    //  alert('Valid Code');
     responsiveVoice.speak("Valid Captcha");
-    confirm("Captcha is correct! Do you want to proceed?");
-    code.textContent = createCaptcha();
-    input.value = "";
+    // confirm("Captcha is correct! Do you want to proceed?");
+    reloadCaptcha();
   } else {
     swal({
       title: "CAPTCHA INVALID!",
@@ -137,11 +134,9 @@ function validcaptcha() {
       icon: "error",
       button: "Retry",
     });
-    //  alert('Invalid Code');
     responsiveVoice.speak("Invalid Captcha");
     confirm("Captcha is incorrect, please try again.");
-    code.textContent = createCaptcha();
-    input.value = "";
+    reloadCaptcha();
   }
 }
 
