@@ -135,7 +135,7 @@ function validcaptcha() {
       button: "Retry",
     });
     responsiveVoice.speak("Invalid Captcha");
-    confirm("Captcha is incorrect, please try again.");
+    // confirm("Captcha is incorrect, please try again.");
     reloadCaptcha();
   }
 }
