@@ -85,14 +85,14 @@ function createCaptcha() {
     "9",
   ];
 
-  let a = letters[Math.floor(Math.random() * letters.length)];
-  let b = letters[Math.floor(Math.random() * letters.length)];
-  let c = letters[Math.floor(Math.random() * letters.length)];
-  let d = letters[Math.floor(Math.random() * letters.length)];
-  let e = letters[Math.floor(Math.random() * letters.length)];
-  let f = letters[Math.floor(Math.random() * letters.length)];
-  let code = a + b + c + d + e + f;
-  return code;
+let code = ''
+for(let i = 0; i<6; i++)
+{
+  let temp = letters[Math.floor(Math.random() * letters.length)]
+  if(temp!=undefined)
+    code = code + temp
+}
+return code
 }
 
 // For speaking the captcha
