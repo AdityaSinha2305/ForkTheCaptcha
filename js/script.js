@@ -8,8 +8,15 @@ changeTextBtn.addEventListener("click", () => {
   code.textContent = createCaptcha();
 });
 window.addEventListener("load", () => {
-  code.textContent = createCaptcha();
+  reloadCaptcha();
+  setInterval(reloadCaptcha, 25000);
 });
+
+// Function to reload captcha
+function reloadCaptcha() {
+  code.textContent = createCaptcha();
+  input.value = ""; // Clear the input field when reloading
+}
 
 // For captcha
 function createCaptcha() {
@@ -26,7 +33,6 @@ function createCaptcha() {
     "J",
     "K",
     "L",
-    ,
     "M",
     "N",
     "O",
@@ -79,14 +85,14 @@ function createCaptcha() {
     "9",
   ];
 
-  let a = letters[Math.floor(Math.random() * letters.length)];
-  let b = letters[Math.floor(Math.random() * letters.length)];
-  let c = letters[Math.floor(Math.random() * letters.length)];
-  let d = letters[Math.floor(Math.random() * letters.length)];
-  let e = letters[Math.floor(Math.random() * letters.length)];
-  let f = letters[Math.floor(Math.random() * letters.length)];
-  let code = a + b + c + d + e + f;
-  return code;
+let code = ''
+for(let i = 0; i<6; i++)
+{
+  let temp = letters[Math.floor(Math.random() * letters.length)]
+  if(temp!=undefined)
+    code = code + temp
+}
+return code
 }
 
 // For speaking the captcha
@@ -121,7 +127,7 @@ function validcaptcha() {
     });
     //  alert('Valid Code');
     responsiveVoice.speak("Valid Captcha");
-    // confirm("Captcha is correct! Do you want to proceed?");
+    confirm("Captcha is correct! Do you want to proceed?");
     code.textContent = createCaptcha();
     input.value = "";
   } else {
@@ -133,7 +139,7 @@ function validcaptcha() {
     });
     //  alert('Invalid Code');
     responsiveVoice.speak("Invalid Captcha");
-    // confirm("Captcha is incorrect, please try again.");
+    confirm("Captcha is incorrect, please try again.");
     code.textContent = createCaptcha();
     input.value = "";
   }
