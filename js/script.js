@@ -1,140 +1,141 @@
 const changeTextBtn = document.querySelector(".changeText");
 const readTextBtn = document.querySelector(".readText");
 const code = document.querySelector("#code");
+const captchaCanvas = document.querySelector("#captchaCanvas");
+const ctx = captchaCanvas.getContext("2d");
 const input = document.querySelector(".userInput input");
 const submitbtn = document.querySelector(".btn");
 
-changeTextBtn.addEventListener("click", () => {
-  code.textContent = createCaptcha();
-});
-window.addEventListener("load", () => {
-  reloadCaptcha();
-  setInterval(reloadCaptcha, 25000);
-});
+let currentCaptcha = "";
+
+// For generating captcha based on user selection
+function generateCaptcha() {
+  let selectedCaptcha = document.querySelector(
+    'input[name="captchaType"]:checked'
+  ).value;
+
+  if (selectedCaptcha === "text") {
+    captchaCanvas.style.display = "none";
+    code.style.display = "block";
+    code.textContent = createTextCaptcha(); // Generate text captcha
+  } else {
+    code.style.display = "none";
+    captchaCanvas.style.display = "block";
+    createImageCaptcha(); // Generate image captcha using canvas
+  }
+}
+
+// For generating text captcha
+function createTextCaptcha() {
+  let letters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let captcha = "";
+  for (let i = 0; i < 6; i++) {
+    captcha += letters[Math.floor(Math.random() * letters.length)];
+  }
+  currentCaptcha = captcha;
+  return captcha;
+}
+
+// For generating image captcha using canvas
+function createImageCaptcha() {
+  let letters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let captcha = "";
+  for (let i = 0; i < 6; i++) {
+    captcha += letters[Math.floor(Math.random() * letters.length)];
+  }
+  currentCaptcha = captcha;
+
+  // Clear canvas before drawing new captcha
+  ctx.clearRect(0, 0, captchaCanvas.width, captchaCanvas.height);
+
+  // Set random background color
+  ctx.fillStyle = getRandomColor();
+  ctx.fillRect(0, 0, captchaCanvas.width, captchaCanvas.height);
+
+  // Set text color and font
+  ctx.font = "30px Arial";
+  ctx.fillStyle = getRandomColor();
+
+  // Add some distortion or random lines for more security
+  for (let i = 0; i < 10; i++) {
+    ctx.strokeStyle = getRandomColor();
+    ctx.beginPath();
+    ctx.moveTo(
+      Math.random() * captchaCanvas.width,
+      Math.random() * captchaCanvas.height
+    );
+    ctx.lineTo(
+      Math.random() * captchaCanvas.width,
+      Math.random() * captchaCanvas.height
+    );
+    ctx.stroke();
+  }
+
+  // Draw captcha text
+  ctx.fillText(captcha, 50, 50);
+}
+
+// Helper function to generate random color
+function getRandomColor() {
+  let letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
 
 // Function to reload captcha
 function reloadCaptcha() {
-  code.textContent = createCaptcha();
+  generateCaptcha(); // Generate captcha based on user selection
   input.value = ""; // Clear the input field when reloading
-}
-
-// For captcha
-function createCaptcha() {
-  let letters = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-    "0",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-  ];
-
-  let a = letters[Math.floor(Math.random() * letters.length)];
-  let b = letters[Math.floor(Math.random() * letters.length)];
-  let c = letters[Math.floor(Math.random() * letters.length)];
-  let d = letters[Math.floor(Math.random() * letters.length)];
-  let e = letters[Math.floor(Math.random() * letters.length)];
-  let f = letters[Math.floor(Math.random() * letters.length)];
-  let code = a + b + c + d + e + f;
-  return code;
 }
 
 // For speaking the captcha
 function speakCaptcha() {
   let text = "";
-  for (let i = 0; i <= code.textContent.length; i++) {
-    text += code.textContent.charAt(i) + " ";
+  for (let i = 0; i <= currentCaptcha.length; i++) {
+    text += currentCaptcha.charAt(i) + " ";
   }
   return text;
 }
 
-//to check whether entered captcha is valid
+// For validating the captcha
 function validcaptcha() {
   responsiveVoice.setDefaultVoice("US English Female");
   responsiveVoice.setDefaultRate(0.75);
   let val = input.value;
   if (val == "") {
-    //  alert('Please Enter the Text.');
     responsiveVoice.speak("Please Enter the Captcha");
-  } else if (val == code.textContent) {
-    //  alert('Valid Code');
+  } else if (val === currentCaptcha) {
     responsiveVoice.speak("Valid Captcha");
     confirm("Captcha is correct! Do you want to proceed?");
     reloadCaptcha();
   } else {
-    //  alert('Invalid Code');
     responsiveVoice.speak("Invalid Captcha");
     confirm("Captcha is incorrect, please try again.");
     reloadCaptcha();
   }
 }
 
-//TEXT TO SPEECH RECOGNITION
+// TEXT TO SPEECH RECOGNITION
 submitbtn.addEventListener("click", () => {
   validcaptcha();
 });
 
-//for keydown===enter case
+// For keydown===enter case
 input.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     validcaptcha();
   }
+});
+
+// Trigger initial captcha generation on page load
+window.addEventListener("load", () => {
+  reloadCaptcha();
+  setInterval(reloadCaptcha, 25000); // Automatically reload captcha every 25 seconds
 });
 
 readTextBtn.addEventListener("click", () => {
@@ -145,10 +146,7 @@ readTextBtn.addEventListener("click", () => {
   responsiveVoice.speak("Please repeat the captcha");
 });
 
-// Add an event listener to the 'changeTextBtn' button for the 'click' event
+// Refresh captcha when "change" button is clicked
 changeTextBtn.addEventListener("click", () => {
-  // Update the text content of the 'code' element with a new captcha generated by 'createCaptcha'
-  code.textContent = createCaptcha();
-  // Clear the value of the 'input' element to reset the input box
-  input.value = "";
+  reloadCaptcha();
 });
