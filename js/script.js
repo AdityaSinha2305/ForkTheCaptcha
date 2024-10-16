@@ -18,8 +18,6 @@ window.addEventListener("load", () => {
 function reloadCaptcha() {
   code.textContent = createCaptcha();
   input.value = ""; // Clear the input field when reloading
-  // clearInterval(strInterval);
-  // strInterval = setInterval(reloadCaptcha, 25000);
 }
 
 // For captcha
