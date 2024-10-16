@@ -10,8 +10,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     </head>
-    <body>
-        <nav class="navbar">
+    <body class="main-container">
+        <nav class="navbar"> 
             <div class="logo">
                 <a href="index.html">Get Your Captcha</a>
             </div>
@@ -24,30 +24,32 @@
                 <i class="fas fa-bars"></i>
             </div>
         </nav>
-        <img src="assets/img1.jpg" class="bg" alt="Background Image">
+        <!-- <img src="assets/img1.jpg" class="bg" alt="Background Image"> -->
+
         <div class="container-fluid">
-            <div class="captcha-container">
-                <div class="header" style="font-size:40px"><b>CAPTCHA</b></div>
+            <div class="captcha-container" style="margin: 20px auto !important; max-width: 400px !important; padding: 20px !important;">
+                <div class="header" style="margin-bottom: 20px !important;">
+                    <b>CAPTCHA</b>
+                </div>
                 
-                <div class="securityCode">
-                    <img src="assets/img2.jpg" class="captchabg" alt="CaptchaImage"> 
-                    <p id="code">Avi6479</p>
+                <div class="securityCode" style="margin-bottom: 20px !important;">
+                    <p id="code" style="margin-bottom: 10px !important;">Avi6479</p>
                     <div class="icons">   
-                        <span class="readText">
-                            <i class="fas fa-volume-up" style="font-size:40px" onmouseover="spkvoiceover()"></i>   
+                        <span class="readText" style="margin-right: 15px !important;">
+                            <i class="fas fa-volume-up" onmouseover="spkvoiceover()"></i>   
                         </span>
                         <span class="changeText">
-                            <i class="fas fa-sync-alt"  style="font-size:40px" onmouseover="spkrefresh()"></i>
+                            <i class="fas fa-sync-alt" onmouseover="spkrefresh()"></i>
                         </span>
                     </div>
                 </div>
-                <div class="userInput">
-                    <input id="textbox" type="text" placeholder="Type the text here">
-                    <button class="btn"  onmouseover="spksubmit()" type="submit">Submit</button>
+                <div class="userInput" style="margin-bottom: 20px !important;">
+                    <input id="textbox" type="text" placeholder="Type the text here" style="width: 100% !important; ">
+                    <button class="btn" onmouseover="spksubmit()" type="submit" >Submit</button>
                 </div>
-    
+            
                 <div class="form-group">
-                    <button id="start-btn" onmouseover="spkstart()" class="btn btn-danger btn-block">START</button>
+                    <button id="start-btn" onmouseover="spkstart()" class="btn btn-danger btn-block" style="width: 100% !important; margin-bottom: 10px !important;">START</button>
                     <p id="instructions">PRESS THE START BUTTON</p>
                 </div>
             </div>
