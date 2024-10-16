@@ -13,7 +13,21 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 60px; /* Adjusted to avoid overlap with navbar */
+    padding-top: 100px; /* Adjust based on navbar height */
+    padding-bottom: 100px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 20px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 100px;
 }
 
 /* Background Image */
@@ -25,204 +39,6 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: -1;
-}
-
-/* Captcha Container */
-.captcha-container {
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    font-family: "Poppins", sans-serif;
-    position: relative;
-}
-
-.header {
-    background: #037ae2;
-    color: #fff;
-    font-size: 1.5rem;
-    width: 100%;
-    text-align: center;
-    border-radius: 20px 20px 0 0;
-    padding: 15px;
-}
-
-.securityCode {
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-}
-
-.captchabg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    top: 0;
-    left: 0;
-}
-
-.securityCode p {
-    text-align: center;
-    color: #e63e3e;
-    font-family: "Montserrat", sans-serif;
-    font-size: 5vw;
-    font-weight: bold;
-    letter-spacing: 10px;
-    user-select: none;
-    z-index: 1;
-}
-
-/* Icons */
-.icons {
-    z-index: 1;
-    bottom: 0;
-    right: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.icons .fas {
-    color: #ffffff;
-    font-size: 1rem;
-    padding: 10px 5px;
-    cursor: pointer;
-    transition: 0.15s ease;
-}
-
-.icons .fas:hover {
-    color: #037ae2;
-}
-
-/* User Input */
-.userInput {
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.userInput input {
-    border-radius: 20px 0 0 20px;
-    outline: none;
-    border: solid 1px gray;
-    border-right: none;
-    padding: 12px;
-    width: 60%;
-    font-size: 1.2rem;
-}
-
-.userInput .btn {
-    border: none;
-    outline: none;
-    background: #037ae2;
-    color: #fff;
-    padding: 12px;
-    border-radius: 0 20px 20px 0;
-    cursor: pointer;
-    transition: 0.15s ease;
-    font-size: 1.2rem;
-}
-
-.userInput .btn:hover {
-    background: #036cc9;
-}
-
-/* Form Group */
-.form-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-#start-btn {
-    height: 65px;
-    text-align: center;
-    padding: 15px;
-    margin-bottom: 10px;
-    font-size: 30px;
-    border-radius: 10px;
-    cursor: pointer;
-    border-style: none;
-    background-color: #037ae2;
-    color: #ffffff;
-}
-
-#start-btn:hover {
-    background-color: #ffffff;
-    color: #037ae2;
-    border: solid #037ae2;
-}
-
-#instructions {
-    margin-top: 8px;
-    padding: 4px;
-    width: 100%;
-    border-radius: 0 0 20px 20px;
-    background-color: rgb(71, 255, 117);
-    font-size: 20px;
-    text-align: center;
-}
-
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #333;
-    color: white;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-.navbar .logo a {
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    transition: max-height 0.3s ease; /* Smooth transition for collapsing/expanding */
-}
-
-.nav-links li {
-    display: inline;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-}
-
-.nav-links a:hover {
-    color: #ddd;
-}
-
-.menu-icon {
-    display: none;
-    cursor: pointer;
-}
-
-.menu-icon i {
-    font-size: 24px;
-    color: white;
 }
 
 /* Collapsed nav styles */
@@ -263,9 +79,17 @@ body {
     .menu-icon {
         display: block;
     }
+
+    footer {
+        font-size: 14px;
+    }
+
+    body {
+        padding-top: 60px; /* Adjust padding for mobile view */
+        padding-bottom: 80px; /* Adjust padding for footer */
+    }
 }
 
-/* Smaller screen adjustments */
 @media (max-width: 480px) {
     .navbar {
         padding: 5px;
