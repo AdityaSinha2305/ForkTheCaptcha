@@ -3,19 +3,23 @@ const readTextBtn = document.querySelector(".readText");
 const code = document.querySelector("#code");
 const input = document.querySelector(".userInput input");
 const submitbtn = document.querySelector(".btn");
-
+let strInterval
 changeTextBtn.addEventListener("click", () => {
+  clearInterval(strInterval);
+  strInterval = setInterval(reloadCaptcha, 25000);
   code.textContent = createCaptcha();
 });
 window.addEventListener("load", () => {
-  reloadCaptcha();
-  setInterval(reloadCaptcha, 25000);
+  // reloadCaptcha();
+   strInterval = setInterval(reloadCaptcha, 25000);
 });
 
 // Function to reload captcha
 function reloadCaptcha() {
   code.textContent = createCaptcha();
   input.value = ""; // Clear the input field when reloading
+  // clearInterval(strInterval);
+  // strInterval = setInterval(reloadCaptcha, 25000);
 }
 
 // For captcha
