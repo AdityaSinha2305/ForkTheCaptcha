@@ -146,6 +146,12 @@ To help you get started quickly, we label issues with:
 ## 🎉 Hacktoberfest 2024
 This project is participating in Hacktoberfest 2024. Contribute to this repository and don't forget to register at [hacktoberfest.com](https://hacktoberfest.com/) and start submitting pull requests.
 
+To make a valid contribution during Hacktoberfest:
+1. Fork the repo and make at least four valid pull requests (PRs) in the month of October.
+2. PRs must follow the Hacktoberfest Guidelines.
+
+Your PRs don't need to be huge – small contributions count too! Fixing a typo, or adding a small feature is valuable!
+
 <br>
 
 ## 💬 Connect With Us
