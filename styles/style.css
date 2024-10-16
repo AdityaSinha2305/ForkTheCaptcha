@@ -26,8 +26,6 @@ body
     object-fit: cover; /* Ensures the image covers the entire viewport */
     z-index: -1; /* Places the image behind all other content */
 }
-
-
 .captcha-container
 {
     /* min-width: 50%; */
@@ -275,8 +273,22 @@ body
 
 /* Padding for body to avoid overlap with fixed navbar */
 body {
-    padding-top: 60px; /* Adjust based on navbar height */
+    padding-top: 100px; /* Adjust based on navbar height */
+    padding-bottom:100px;
 }
+footer {
+    text-align: center;
+    padding: 25px 20px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 100px;
+}
+
 
 /* Responsive Behaviour */
 @media (max-width: 768px) {
@@ -302,6 +314,10 @@ body {
     
     .menu-icon {
         display: block; /* Show menu icon for smaller screens */
+    }
+
+    footer {
+        font-size: 14px;
     }
 }
 
