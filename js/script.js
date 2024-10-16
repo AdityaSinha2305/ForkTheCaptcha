@@ -110,17 +110,32 @@ function validcaptcha() {
   responsiveVoice.setDefaultRate(0.75);
   let val = input.value;
   if (val == "") {
-    //  alert('Please Enter the Text.');
+    swal({
+      title: "CAPTCHA NOT FOUND!",
+      text: "Please enter the Text!",
+      icon: "error",
+      button: "Retry",
+    });
     responsiveVoice.speak("Please Enter the Captcha");
   } else if (val == code.textContent) {
-    //  alert('Valid Code');
+    swal({
+      title: "VALID CAPTCHA!",
+      text: "The captcha entered is valid!",
+      icon: "success",
+      button: "Proceed",
+    });
     responsiveVoice.speak("Valid Captcha");
-    confirm("Captcha is correct! Do you want to proceed?");
+    // confirm("Captcha is correct! Do you want to proceed?");
     reloadCaptcha();
   } else {
-    //  alert('Invalid Code');
+    swal({
+      title: "CAPTCHA INVALID!",
+      text: "Please enter correct text!",
+      icon: "error",
+      button: "Retry",
+    });
     responsiveVoice.speak("Invalid Captcha");
-    confirm("Captcha is incorrect, please try again.");
+    // confirm("Captcha is incorrect, please try again.");
     reloadCaptcha();
   }
 }
