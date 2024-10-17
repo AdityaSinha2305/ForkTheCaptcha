@@ -44,6 +44,18 @@
     color: #ddd;
 }
 
+/* Menu Icon (hamburger) for Mobile View */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icon i {
+    color: white;
+    font-size: 24px;
+}
+
+/* Collapsed Menu Behavior for Mobile */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -58,6 +70,10 @@
         gap: 10px;
     }
 
+    .nav-links.show {
+        display: flex; /* Show when toggled */
+    }
+
     .menu-icon {
         display: block;
     }
@@ -67,16 +83,7 @@
     }
 }
 
-.menu-icon {
-    display: none;
-    cursor: pointer;
-}
-
-.menu-icon i {
-    color: white;
-    font-size: 24px;
-}
-
+/* Container and About Section Styles */
 .container {
     padding: 100px 30px;
     text-align: center;
@@ -112,6 +119,7 @@
     margin: 10px 0;
 }
 
+/* Footer */
 footer {
     text-align: center;
     padding: 20px 0;
@@ -130,48 +138,7 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: #333;
-        padding: 10px;
-        width: 100%;
-        gap: 10px;
-    }
-
-    .nav-links.show {
-        display: flex;
-    }
-
-    .menu-icon {
-        display: block;
-    }
-
-    .navbar .logo a {
-        font-size: 20px;
-    }
-
-    .about h1 {
-        font-size: 26px;
-    }
-
-    .about p {
-        font-size: 16px;
-    }
-
-    .about ul li {
-        font-size: 16px;
-    }
-
-    .container {
-        padding: 80px 20px;
-    }
-}
-
+/* Additional mobile adjustments */
 @media (max-width: 480px) {
     .navbar {
         padding: 10px 20px;
