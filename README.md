@@ -123,8 +123,47 @@ After syncing, you can create a new branch from the updated main branch or can m
 
 <br>
 
+## 🌱 Beginner-Friendly Contribution Guide
+If you're new to open-source, Hacktoberfest is a great time to start! Here's a simple guide to contributing:
+
+1. Find an Issue: Check out our Issues section for tasks tagged with 'good first issue'.
+2. Comment: Leave a comment under the issue that you'd like to work on.
+3. Submit a PR: Once you're done, submit a Pull Request (PR) and we'll review it.
+
+<br>
+
+## 🏷️ Labels for Issues
+To help you get started quickly, we label issues with:
+
+- good first issue: Simple tasks perfect for beginners.
+- enhancement: Features and improvements that can be added.
+- bug: Issues that need fixing.
+- documentation: Help us with writing or improving docs.
+- hacktoberfest: Tasks suitable for hacktoberfest.
+
+<br>
+
 ## 🎉 Hacktoberfest 2024
 This project is participating in Hacktoberfest 2024. Contribute to this repository and don't forget to register at [hacktoberfest.com](https://hacktoberfest.com/) and start submitting pull requests.
+
+To make a valid contribution during Hacktoberfest:
+1. Fork the repo and make at least four valid pull requests (PRs) in the month of October.
+2. PRs must follow the Hacktoberfest Guidelines.
+
+Your PRs don't need to be huge – small contributions count too! Fixing a typo, or adding a small feature is valuable!
+
+<br>
+
+## 💬 Connect With Us
+Got questions? Suggestions? We'd love to hear from you!
+
+- Issues: Check out our Issues Page to ask questions or report bugs.
+- Discussions: Join the Discussion for project ideas, feedback, and collaboration.
+
+<br>
+
+## 🏆 Contributors
+Thank you to everyone contributing to ForkTheCaptcha! Your efforts help make this project better. 💪
 
 <br>
 
