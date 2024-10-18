@@ -31,8 +31,15 @@
     </nav>
     <img src="assets/img1.jpg" class="bg" alt="Background Image" />
     <div class="container-fluid">
-      <div class="captcha-container">
-        <div class="header" style="font-size: 40px"><b>CAPTCHA</b></div>
+      <!-- Toggle Captcha Menu -->
+      <div class="toggleMenu">
+        <button class="toggleCaptchaBtn" id="textCaptchaBtn">TEXT</button>
+        <button class="toggleCaptchaBtn" id="mathCaptchaBtn">MATH</button>
+      </div>
+
+      <!-- Text Captcha -->
+      <div class="captcha-container" id="textCaptcha" style="display: block">
+        <div class="header" style="font-size: 40px"><b>TEXT CAPTCHA</b></div>
 
         <div class="securityCode">
           <img src="assets/img2.jpg" class="captchabg" alt="CaptchaImage" />
@@ -57,6 +64,58 @@
         <div class="userInput">
           <input id="textbox" type="text" placeholder="Type the text here" />
           <button class="btn" onmouseover="spksubmit()" type="submit">
+            Submit
+          </button>
+        </div>
+
+        <div class="form-group">
+          <button
+            id="start-btn"
+            onmouseover="spkstart()"
+            class="btn btn-danger btn-block"
+          >
+            START
+          </button>
+          <p id="instructions">PRESS THE START BUTTON</p>
+        </div>
+      </div>
+
+      <!-- Math Captcha -->
+      <div class="captcha-container" id="mathCaptcha" style="display: none">
+        <div class="header" style="font-size: 40px"><b>MATH CAPTCHA</b></div>
+
+        <div class="securityCode">
+          <img src="assets/img2.jpg" class="captchabg" alt="CaptchaImage" />
+          <p id="mathCode">Avi6479</p>
+          <div class="icons">
+            <span class="readText" id="readMath">
+              <i
+                class="fas fa-volume-up"
+                style="font-size: 40px"
+                onmouseover="spkvoiceover()"
+              ></i>
+            </span>
+            <span class="changeText" id="changeMathBtn">
+              <i
+                class="fas fa-sync-alt"
+                style="font-size: 40px"
+                onmouseover="spkrefresh()"
+              ></i>
+            </span>
+          </div>
+        </div>
+        <div class="userInput">
+          <input
+            id="mathInput"
+            type="number"
+            placeholder="Type the number here"
+          />
+          <button
+            class="btn"
+            id="submitMathBtn"
+            onmouseover="spksubmit()"
+            type="submit"
+          >
             Submit
           </button>
         </div>

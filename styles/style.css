@@ -340,3 +340,33 @@ footer {
     }
 }
 
+
+
+.toggleMenu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5px;
+    justify-content: space-evenly;
+    background-color: #fff;
+    border: 4px solid black;
+    border-radius: 9999px;
+}
+
+.toggleCaptchaBtn {
+    font-size: 2vw;
+    padding: 10px;
+    color: black;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: all 0.1s ease-in-out; 
+    border: 4px solid transparent;
+    border-radius: 9999px;
+}
+
+.toggleCaptchaBtn:hover {
+    border: 2px solid black;
+    background-color: #cfcfcf;
+}
