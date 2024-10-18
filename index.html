@@ -30,17 +30,19 @@
                 <div class="header" style="font-size:40px"><b>CAPTCHA</b></div>
                 
                 <div class="securityCode">
-                    <img src="assets/img2.jpg" class="captchabg" alt="CaptchaImage"> 
-                    <p id="code">Avi6479</p>
-                    <div class="icons">   
+                    <canvas id="captchaCanvas" width="200" height="60" style="display:none;"></canvas> 
+                    <img id="captcha-image" class="captchabg" alt="Captcha Image">
+                    <div class="icons">
                         <span class="readText">
                             <i class="fas fa-volume-up" style="font-size:40px" onmouseover="spkvoiceover()"></i>   
                         </span>
                         <span class="changeText">
-                            <i class="fas fa-sync-alt"  style="font-size:40px" onmouseover="spkrefresh()"></i>
+                            <i class="fas fa-sync-alt" style="font-size:40px" onmouseover="spkrefresh()"></i>
                         </span>
                     </div>
                 </div>
+                
+                
                 <div class="userInput">
                     <input id="textbox" type="text" placeholder="Type the text here">
                     <button class="btn"  onmouseover="spksubmit()" type="submit">Submit</button>

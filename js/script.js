@@ -1,15 +1,50 @@
 const changeTextBtn = document.querySelector(".changeText");
 const readTextBtn = document.querySelector(".readText");
-const code = document.querySelector("#code");
 const input = document.querySelector(".userInput input");
 const submitbtn = document.querySelector(".btn");
 
 let captchaTimeout;  // Declare a variable to hold the timeout ID
+let generatedCaptcha = '';  // Store the generated CAPTCHA text here
+
+const canvas = document.getElementById('captchaCanvas');
+const ctx = canvas.getContext('2d');
+const captchaImage = document.getElementById('captcha-image');
 
 // Function to reload captcha
 function reloadCaptcha() {
-  code.textContent = createCaptcha();
+  generatedCaptcha = createCaptcha();  // Generate CAPTCHA text and store it
+  drawCaptchaOnCanvas(generatedCaptcha);  // Draw it on the canvas
   input.value = "";  // Clear the input field when reloading
+}
+
+function drawCaptchaOnCanvas(captchaText) {
+  // Clear canvas before drawing
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Background (optional: you can add noise here)
+  ctx.fillStyle = '#f2f2f2';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Set font and style for CAPTCHA text
+  ctx.font = 'bold 40px Arial';
+  ctx.fillStyle = '#333';
+  ctx.textBaseline = 'middle';
+
+  // Add random rotation to make it harder for bots
+  let x = 20;
+  for (let i = 0; i < captchaText.length; i++) {
+    const char = captchaText.charAt(i);
+    const rotation = Math.random() * 0.3 - 0.15;  // Random rotation between -0.15 and 0.15 radians
+    ctx.save();
+    ctx.translate(x, 30);  // Translate to center point
+    ctx.rotate(rotation);  // Apply rotation
+    ctx.fillText(char, 0, 0);  // Draw the character
+    ctx.restore();
+    x += 30;  // Move to the next position
+  }
+
+  // Convert canvas to image and display it
+  captchaImage.src = canvas.toDataURL('image/png');
 }
 
 // Function to start the timeout for refreshing the CAPTCHA after 25 seconds
@@ -33,19 +68,12 @@ changeTextBtn.addEventListener("click", () => {
   startCaptchaTimeout();  // Restart the timeout after the manual refresh
 });
 
-// For captcha
+// For captcha generation
 function createCaptcha() {
-  let letters = [
-    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
-    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
-    "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
-  ];
-
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   let code = '';
   for (let i = 0; i < 6; i++) {
-    let temp = letters[Math.floor(Math.random() * letters.length)];
-    if (temp != undefined)
-      code = code + temp;
+    code += letters.charAt(Math.floor(Math.random() * letters.length));
   }
   return code;
 }
@@ -53,8 +81,8 @@ function createCaptcha() {
 // For speaking the captcha
 function speakCaptcha() {
   let text = "";
-  for (let i = 0; i <= code.textContent.length; i++) {
-    text += code.textContent.charAt(i) + " ";
+  for (let i = 0; i < generatedCaptcha.length; i++) {
+    text += generatedCaptcha.charAt(i) + " ";
   }
   return text;
 }
@@ -72,7 +100,7 @@ function validcaptcha() {
       button: "Retry",
     });
     responsiveVoice.speak("Please Enter the Captcha");
-  } else if (val == code.textContent) {
+  } else if (val === generatedCaptcha) {  // Use generatedCaptcha for validation
     swal({
       title: "VALID CAPTCHA!",
       text: "The captcha entered is valid!",
@@ -112,5 +140,4 @@ readTextBtn.addEventListener("click", () => {
   responsiveVoice.setDefaultVoice("US English Female");
   responsiveVoice.setDefaultRate(0.75);
   responsiveVoice.speak(tex);
-  responsiveVoice.speak("Please repeat the captcha");
 });
