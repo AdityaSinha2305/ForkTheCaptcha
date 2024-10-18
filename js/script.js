@@ -12,7 +12,7 @@ changeTextBtn.addEventListener("click", () => {
   code.textContent = createCaptcha();
 });
 window.addEventListener("load", () => {
-  // reloadCaptcha();
+  reloadCaptcha();
    strInterval = setInterval(reloadCaptcha, 25000);
 });
 
