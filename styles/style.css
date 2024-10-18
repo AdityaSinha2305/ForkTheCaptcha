@@ -5,10 +5,11 @@
 }
 body
 {
-    /* background-image: url('assets/img1.jpg'); */
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(45deg,#d2001a,#7462ff,#f48e21,#23d5ab);
+    background-size: 300% 300%;
+    animation: color 5s ease-in-out infinite ;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -16,16 +17,19 @@ body
     /*background: #1A1D2B;*/
 }
 
-/* For background image */
-.bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image covers the entire viewport */
-    z-index: -1; /* Places the image behind all other content */
+@keyframes color {
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
 }
+
+/* For background image */
 .captcha-container
 {
     /* min-width: 50%; */
@@ -221,17 +225,35 @@ body
 }
 
 .navbar {
+    height: 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: #333;
+    background: rgba(255, 255, 255, 0.1);
     color: white;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000; /* Ensures the navbar stays on top */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(7px);
+}
+
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.5s;
+}
+
+.navbar:hover::before {
+    left: 100%;
 }
 
 .navbar .logo a {
@@ -258,7 +280,8 @@ body
 }
 
 .nav-links a:hover {
-    color: #ddd;
+    color: blueviolet;
+    border-bottom: 2px solid greenyellow;
 }
 
 .menu-icon {
@@ -279,16 +302,32 @@ body {
 footer {
     text-align: center;
     padding: 25px 20px;
-    background-color: #333;
+    background: rgba(255, 255, 255, 0.1);
     color: white;
+    height: 7%;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     box-sizing: border-box;
     margin-top: 100px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(7px);
+}
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.5s;
 }
 
+footer:hover::before {
+    left: 100%;
+}
 
 /* Responsive Behaviour */
 @media (max-width: 768px) {
