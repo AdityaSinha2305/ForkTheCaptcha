@@ -1,3 +1,7 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
