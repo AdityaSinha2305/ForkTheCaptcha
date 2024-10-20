@@ -1,65 +1,31 @@
-const changeTextBtn = document.querySelector(".changeText");
-const readTextBtn = document.querySelector(".readText");
-const input = document.querySelector(".userInput input");
-const submitbtn = document.querySelector(".btn");
+const changeTextBtn = document.querySelector("#changeTextBtn");
+const readTextBtn = document.querySelector("#readText");
+const code = document.querySelector("#code");
+const input = document.querySelector("#textbox");
+const submitTextBtn = document.querySelector("#submitTextBtn");
+
+const mathCode = document.querySelector("#mathCode");
+const mathInput = document.querySelector("#mathInput");
+const readMathBtn = document.querySelector("#readMath");
+const submitMathBtn = document.querySelector("#submitMathBtn");
+const changeMathBtn = document.querySelector("#changeMathBtn");
+
+
+let captchaType = "text";
 
 let captchaTimeout;  // Declare a variable to hold the timeout ID
-let generatedCaptcha = '';  // Store the generated CAPTCHA text here
-
-const canvas = document.getElementById('captchaCanvas');
-const ctx = canvas.getContext('2d');
-const captchaImage = document.getElementById('captcha-image');
-canvas.width = 300; 
-canvas.height = 100;
 
 // Function to reload captcha
 function reloadCaptcha() {
-  generatedCaptcha = createCaptcha();  // Generate CAPTCHA text and store it
-  drawCaptchaOnCanvas(generatedCaptcha);  // Draw it on the canvas
-  input.value = "";  // Clear the input field when reloading
+  if(captchaType == "text") {
+    code.textContent = createCaptcha();
+    input.value = "";  // Clear the input field when reloading
+  }
+  else {
+    mathCode.textContent = createMathCaptcha(); 
+    mathInput.value = "";  // Clear the input field when reloading
+  }
 }
-
-function drawCaptchaOnCanvas(captchaText) {
-  // Clear the canvas before drawing
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  // Background Image (add your image path here)
-  const backgroundImage = new Image();
-  backgroundImage.src = 'assets/img2.jpg';  // Update the path to your desired background image
-  
-  // Draw the background image on the canvas (fill the entire canvas)
-  backgroundImage.onload = () => {
-    ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height); // This will stretch the image to cover the entire canvas
-
-    // Set the font and style for CAPTCHA text
-    ctx.font = 'bold 40px Arial'; // Set the font style
-    ctx.fillStyle = '#fff'; // Set text color to white
-    ctx.textBaseline = 'middle'; // Vertically center the text
-
-    // Calculate the total width of the CAPTCHA text to center it
-    const textWidth = ctx.measureText(captchaText).width;
-    const x = (canvas.width - textWidth) / 2;  // Horizontally center the text
-    const y = canvas.height / 2;  // Vertically center the text
-
-    // Add random rotation to make it harder for bots
-    let xOffset = x;  // Starting position for the first character
-    for (let i = 0; i < captchaText.length; i++) {
-      const char = captchaText.charAt(i);
-      const rotation = Math.random() * 0.3 - 0.15;  // Random rotation between -0.15 and 0.15 radians
-      ctx.save();
-      ctx.translate(xOffset, y);  // Translate to center point
-      ctx.rotate(rotation);  // Apply random rotation
-      ctx.fillText(char, 0, 0);  // Draw the character
-      ctx.restore();
-      xOffset += 25;  // Space between characters
-    }
-
-    // Convert canvas to image and display it
-    captchaImage.src = canvas.toDataURL('image/png');
-  };
-}
-
-
 
 // Function to start the timeout for refreshing the CAPTCHA after 25 seconds
 function startCaptchaTimeout() {
@@ -82,12 +48,25 @@ changeTextBtn.addEventListener("click", () => {
   startCaptchaTimeout();  // Restart the timeout after the manual refresh
 });
 
-// For captcha generation
+// Modify the 'changeMathBtn' event listener to handle manual refresh
+changeMathBtn.addEventListener("click", () => {
+  reloadCaptcha();  // Manually refresh the CAPTCHA
+  startCaptchaTimeout();  // Restart the timeout after the manual refresh
+});
+
+// For captcha
 function createCaptcha() {
-  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let letters = [
+    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+    "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+  ];
+
   let code = '';
   for (let i = 0; i < 6; i++) {
-    code += letters.charAt(Math.floor(Math.random() * letters.length));
+    let temp = letters[Math.floor(Math.random() * letters.length)];
+    if (temp != undefined)
+      code = code + temp;
   }
   return code;
 }
@@ -95,8 +74,8 @@ function createCaptcha() {
 // For speaking the captcha
 function speakCaptcha() {
   let text = "";
-  for (let i = 0; i < generatedCaptcha.length; i++) {
-    text += generatedCaptcha.charAt(i) + " ";
+  for (let i = 0; i <= code.textContent.length; i++) {
+    text += code.textContent.charAt(i) + " ";
   }
   return text;
 }
@@ -114,7 +93,7 @@ function validcaptcha() {
       button: "Retry",
     });
     responsiveVoice.speak("Please Enter the Captcha");
-  } else if (val === generatedCaptcha) {  // Use generatedCaptcha for validation
+  } else if (val == code.textContent) {
     swal({
       title: "VALID CAPTCHA!",
       text: "The captcha entered is valid!",
@@ -233,4 +212,35 @@ readMathBtn.addEventListener("click", () => {
   responsiveVoice.setDefaultVoice("US English Female");
   responsiveVoice.setDefaultRate(0.75);
   responsiveVoice.speak(tex);
+  responsiveVoice.speak("Please enter the result of the math problem!");
+});
+
+
+
+// Toggle Captcha - Math and Text
+
+const textCaptchaBtn = document.querySelector('#textCaptchaBtn');
+const mathCaptchaBtn = document.querySelector('#mathCaptchaBtn');
+
+const textCaptchaDiv = document.querySelector('#textCaptcha');
+const mathCaptchaDiv = document.querySelector('#mathCaptcha');
+
+
+textCaptchaDiv.style.display = "block";
+mathCaptchaDiv.style.display = "none";
+
+textCaptchaBtn.addEventListener("click" , () => {
+  captchaType = "text";
+  textCaptchaDiv.style.display = "block";
+  mathCaptchaDiv.style.display = "none";
+  reloadCaptcha();
+  startCaptchaTimeout();
+});
+
+mathCaptchaBtn.addEventListener("click" , () => {
+  captchaType = "math";
+  textCaptchaDiv.style.display = "none";
+  mathCaptchaDiv.style.display = "block";
+  reloadCaptcha();
+  startCaptchaTimeout();
 });
