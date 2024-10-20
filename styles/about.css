@@ -1,18 +1,63 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(45deg,#d2001a,#7462ff,#f48e21,#23d5ab);
+  background: linear-gradient(45deg,#d2001a,#7462ff,#f48e21,#23d5ab);
+  background-size: 300% 300%;
+  animation: color 5s ease-in-out infinite ;
+}
+@keyframes color {
+  0%{
+      background-position: 0 50%;
+  }
+  50%{
+      background-position: 100% 50%;
+  }
+  100%{
+      background-position: 0 50%;
+  }
+}
+
+
 .navbar {
+  height: 7%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: #333;
+  background: rgba(255, 255, 255, 0.1);
   color: white;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 1000;
-  box-sizing: border-box;
+  z-index: 1000; /* Ensures the navbar stays on top */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(7px);
 }
 
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: 0.5s;
+}
+
+.navbar:hover::before {
+  left: 100%;
+}
 .navbar .logo a {
   font-size: 24px;
   font-weight: bold;
@@ -30,6 +75,11 @@
   white-space: nowrap;
 }
 
+.nav-links a:hover {
+  color: blueviolet;
+  border-bottom: 2px solid greenyellow;
+}
+
 .nav-links li {
   display: inline;
 }
@@ -40,9 +90,6 @@
   font-size: 18px;
 }
 
-.nav-links a:hover {
-  color: #ddd;
-}
 
 @media (max-width: 768px) {
   .nav-links {
@@ -77,16 +124,12 @@
   font-size: 24px;
 }
 
-.container {
-  padding: 100px 30px;
-  text-align: center;
-  background-color: #f3f4f6; /* Light background for contrast */
-}
 
 .about {
+  color: #ffffff !important;
   max-width: 800px;
   margin: 0 auto;
-  background-color: #ffffff; /* White background for card */
+  background-color: #000000; /* White background for card */
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
@@ -100,7 +143,6 @@
 
 .about-title {
   font-size: 2.5rem;
-  color: #333333;
   margin-bottom: 20px;
   font-family: "Poppins", sans-serif;
 }
@@ -108,13 +150,11 @@
 .about-description {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #555555;
   margin-bottom: 25px;
 }
 
 .project-features-title {
   font-size: 1.8rem;
-  color: #2c3e50;
   margin-bottom: 15px;
 }
 
@@ -125,7 +165,6 @@
 
 .project-feature-item {
   font-size: 1rem;
-  color: #4a4a4a;
   margin-bottom: 10px;
   padding-left: 20px;
   position: relative;
@@ -160,16 +199,33 @@
 
 footer {
   text-align: center;
-  padding: 20px 0;
-  background-color: #333;
+  padding: 25px 20px;
+  background: rgba(255, 255, 255, 0.1);
   color: white;
+  height: 7%;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   box-sizing: border-box;
+  margin-top: 100px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(7px);
+}
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: 0.5s;
 }
 
+footer:hover::before {
+  left: 100%;
+}
 @media (max-width: 768px) {
   footer {
     font-size: 14px;
