@@ -1,6 +1,7 @@
 const changeTextBtn = document.querySelector("#changeTextBtn");
 const readTextBtn = document.querySelector("#readText");
 const code = document.querySelector("#code");
+
 const input = document.querySelector("#textbox");
 const submitTextBtn = document.querySelector("#submitTextBtn");
 
@@ -101,6 +102,11 @@ function validcaptcha() {
       button: "Proceed",
     });
     responsiveVoice.speak("Valid Captcha");
+    const userResponse = confirm("Captcha is correct! Do you want to proceed?");
+    if (userResponse === true) {
+
+      window.location.href = "login.html"
+    }
     reloadCaptcha();
     startCaptchaTimeout();  // Restart the timeout after successful validation
   } else {
@@ -111,6 +117,7 @@ function validcaptcha() {
       button: "Retry",
     });
     responsiveVoice.speak("Invalid Captcha");
+    confirm("Captcha is incorrect, please try again.");
     reloadCaptcha();
     startCaptchaTimeout();  // Restart the timeout after failed validation
   }

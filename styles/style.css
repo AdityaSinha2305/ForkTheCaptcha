@@ -1,10 +1,10 @@
-*{
-    margin:0;
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body
-{
+
+body {
     /* background-image: url('assets/img1.jpg'); */
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -23,33 +23,35 @@ body
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image covers the entire viewport */
-    z-index: -1; /* Places the image behind all other content */
+    object-fit: cover;
+    /* Ensures the image covers the entire viewport */
+    z-index: -1;
+    /* Places the image behind all other content */
 }
 .captcha-container
 {
     /* min-width: 50%; */
     /* max-width: 50%; */
-    background:#FFF;
+    background: #FFF;
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    font-family:"Poppins" , sans-serif;
+    font-family: "Poppins", sans-serif;
     position: relative;
 }
-.header{
+
+.header {
     background: #037AE2;
     color: #fff;
     font-size: 1.5rem;
     width: 100%;
     text-align: center;
     border-radius: 20px 20px 0 0;
-    padding:15px;
-    
+    padding: 15px;
+
 }
 
-.securityCode
-{
+.securityCode {
     width: 100%;
     /*height: 250px;
     /* background:url('assets/img2.jpg'); */
@@ -60,10 +62,11 @@ body
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: relative; /* To control the position of inner elements */
+    position: relative;
+    /* To control the position of inner elements */
 }
 
-.captchabg{
+.captchabg {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -72,49 +75,48 @@ body
     left: 0;
 }
 
-.securityCode p
-{
+.securityCode p {
     text-align: center;
     /*line-height: 250px;
     /* color: #fff; */
     color: #e63e3e;
-    font-family:"Montserrat" ,sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 5vw;
     font-weight: bold;
     letter-spacing: 10px;
     user-select: none;
     z-index: 1;
 }
-.icons
-{
+
+.icons {
     z-index: 1;
-    bottom:0;
+    bottom: 0;
     right: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.icons .fas
-{
+
+.icons .fas {
     color: #ffffff;
     font-size: 1.rem;
     padding: 10px 5px;
     cursor: pointer;
     transition: 0.15s ease;
 }
-.icons .fas:hover
-{
+
+.icons .fas:hover {
     color: #037AE2;
 }
-.userInput
-{
+
+.userInput {
     width: 100%;
     padding: 20px;
     display: flex;
     justify-content: center;
 }
-.userInput input
-{
+
+.userInput input {
     border-radius: 20px 0 0 20px;
     outline: none;
     border: solid 1px gray;
@@ -123,8 +125,8 @@ body
     width: 60%;
     font-size: 1.2rem;
 }
-.userInput .btn
-{
+
+.userInput .btn {
     border: none;
     outline: none;
     background: #037AE2;
@@ -135,19 +137,19 @@ body
     transition: 0.15s ease;
     font-size: 1.2rem;
 }
-.userInput .btn:hover
-{
+
+.userInput .btn:hover {
     background: #036CC9;
 }
 
-.form-group{
+.form-group {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-#start-btn 
-{
+
+#start-btn {
     height: 65px;
     text-align: center;
     padding: 15px;
@@ -168,8 +170,7 @@ body
     border: solid #037AE2;
 }
 
-#instructions
-{
+#instructions {
     margin-top: 8px;
     padding: 4px;
     width: 100%;
@@ -177,6 +178,43 @@ body
     background-color: rgb(71, 255, 117);
     font-size: 20px;
     text-align: center;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    height: 100vh;
+    background: #fefdfd;
+    width: 100%;
+}
+
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    gap: 1rem;
+}
+
+.input-parent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.login-input{
+    padding: 8px;
+}
+
+.input-label{
+    font-size: 20px;
+}
+
+#login-button{
+    padding: 8px
 }
 
 /* Responsive Behaviour */
