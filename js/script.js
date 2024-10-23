@@ -14,7 +14,18 @@ const changeMathBtn = document.querySelector("#changeMathBtn");
 
 let captchaType = "text";
 
-let captchaTimeout;  // Declare a variable to hold the timeout ID
+
+let strInterval
+changeTextBtn.addEventListener("click", () => {
+  clearInterval(strInterval);
+  strInterval = setInterval(reloadCaptcha, 25000);
+  code.textContent = createCaptcha();
+});
+window.addEventListener("load", () => {
+  reloadCaptcha();
+   strInterval = setInterval(reloadCaptcha, 25000);
+});
+
 
 // Function to reload captcha
 function reloadCaptcha() {
@@ -29,25 +40,7 @@ function reloadCaptcha() {
 }
 
 // Function to start the timeout for refreshing the CAPTCHA after 25 seconds
-function startCaptchaTimeout() {
-  clearTimeout(captchaTimeout);  // Clear any existing timeout
-  captchaTimeout = setTimeout(() => {
-    reloadCaptcha();
-    startCaptchaTimeout();  // Restart the timeout to keep the loop going
-  }, 25000);  // 25 seconds
-}
 
-// Set timeout when the page loads
-window.addEventListener("load", () => {
-  reloadCaptcha();  // Initial CAPTCHA load
-  startCaptchaTimeout();  // Start the first 25-second timeout
-});
-
-// Modify the 'changeTextBtn' event listener to handle manual refresh
-changeTextBtn.addEventListener("click", () => {
-  reloadCaptcha();  // Manually refresh the CAPTCHA
-  startCaptchaTimeout();  // Restart the timeout after the manual refresh
-});
 
 // Modify the 'changeMathBtn' event listener to handle manual refresh
 changeMathBtn.addEventListener("click", () => {
