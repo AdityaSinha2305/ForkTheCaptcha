@@ -14,18 +14,7 @@ const changeMathBtn = document.querySelector("#changeMathBtn");
 
 let captchaType = "text";
 
-
-let strInterval
-changeTextBtn.addEventListener("click", () => {
-  clearInterval(strInterval);
-  strInterval = setInterval(reloadCaptcha, 25000);
-  code.textContent = createCaptcha();
-});
-window.addEventListener("load", () => {
-  reloadCaptcha();
-   strInterval = setInterval(reloadCaptcha, 25000);
-});
-
+let captchaTimeout;  // Declare a variable to hold the timeout ID
 
 // Function to reload captcha
 function reloadCaptcha() {
@@ -40,7 +29,27 @@ function reloadCaptcha() {
 }
 
 // Function to start the timeout for refreshing the CAPTCHA after 25 seconds
+function startCaptchaTimeout() {
+  
+  clearTimeout(captchaTimeout);  // Clear any existing timeout
+  captchaTimeout = setTimeout(() => {
+   
+    startCaptchaTimeout(); 
+    reloadCaptcha(); // Restart the timeout to keep the loop going
+  }, 25000);  // 25 seconds
+}
 
+// Set timeout when the page loads
+window.addEventListener("load", () => {
+  reloadCaptcha();  // Initial CAPTCHA load
+  startCaptchaTimeout();  // Start the first 25-second timeout
+});
+
+// Modify the 'changeTextBtn' event listener to handle manual refresh
+changeTextBtn.addEventListener("click", () => {
+  reloadCaptcha();  // Manually refresh the CAPTCHA
+  startCaptchaTimeout();  // Restart the timeout after the manual refresh
+});
 
 // Modify the 'changeMathBtn' event listener to handle manual refresh
 changeMathBtn.addEventListener("click", () => {
@@ -88,18 +97,37 @@ function validcaptcha() {
     });
     responsiveVoice.speak("Please Enter the Captcha");
   } else if (val == code.textContent) {
+    // swal({
+    //   title: "VALID CAPTCHA!",
+    //   text: "The captcha entered is valid!",
+    //   icon: "success",
+    //   button: "Proceed",
+    // });
     swal({
       title: "VALID CAPTCHA!",
-      text: "The captcha entered is valid!",
+      text: "The captcha entered is valid! Do you want to proceed?",
       icon: "success",
-      button: "Proceed",
+      buttons: true,
+      // dangerMode: true,
+    })
+    .then((willProceed) => {
+      if (willProceed) {
+        // swal("Poof! Your imaginary file has been deleted!", {
+        //   icon: "success",
+        // });
+         window.location.href = "login.html";
+      }
+      // } else {
+      //   swal("Your imaginary file is safe!");
+      // }
     });
+    
     responsiveVoice.speak("Valid Captcha");
-    const userResponse = confirm("Captcha is correct! Do you want to proceed?");
-    if (userResponse === true) {
+    // const userResponse = confirm("Captcha is correct! Do you want to proceed?");
+    // if (userResponse === true) {
 
-      window.location.href = "login.html"
-    }
+    //   window.location.href = "login.html"
+    // }
     reloadCaptcha();
     startCaptchaTimeout();  // Restart the timeout after successful validation
   } else {
