@@ -108,18 +108,11 @@ function validcaptcha() {
       text: "The captcha entered is valid! Do you want to proceed?",
       icon: "success",
       buttons: true,
-      // dangerMode: true,
     })
     .then((willProceed) => {
       if (willProceed) {
-        // swal("Poof! Your imaginary file has been deleted!", {
-        //   icon: "success",
-        // });
          window.location.href = "login.html";
       }
-      // } else {
-      //   swal("Your imaginary file is safe!");
-      // }
     });
     
     responsiveVoice.speak("Valid Captcha");
