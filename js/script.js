@@ -16,6 +16,8 @@ let captchaType = "text";
 
 let captchaTimeout;  // Declare a variable to hold the timeout ID
 
+let timerInterval;
+
 // Function to reload captcha
 function reloadCaptcha() {
   if(captchaType == "text") {
@@ -32,6 +34,7 @@ function reloadCaptcha() {
 function startCaptchaTimeout() {
   clearTimeout(captchaTimeout);  // Clear any existing timeout
   captchaTimeout = setTimeout(() => {
+    timer();
     reloadCaptcha();
     startCaptchaTimeout();  // Restart the timeout to keep the loop going
   }, 25000);  // 25 seconds
@@ -39,18 +42,21 @@ function startCaptchaTimeout() {
 
 // Set timeout when the page loads
 window.addEventListener("load", () => {
+  timer();
   reloadCaptcha();  // Initial CAPTCHA load
   startCaptchaTimeout();  // Start the first 25-second timeout
 });
 
 // Modify the 'changeTextBtn' event listener to handle manual refresh
 changeTextBtn.addEventListener("click", () => {
+  timer();
   reloadCaptcha();  // Manually refresh the CAPTCHA
   startCaptchaTimeout();  // Restart the timeout after the manual refresh
 });
 
 // Modify the 'changeMathBtn' event listener to handle manual refresh
 changeMathBtn.addEventListener("click", () => {
+  timer();
   reloadCaptcha();  // Manually refresh the CAPTCHA
   startCaptchaTimeout();  // Restart the timeout after the manual refresh
 });
@@ -107,6 +113,7 @@ function validcaptcha() {
 
       window.location.href = "login.html"
     }
+    timer();
     reloadCaptcha();
     startCaptchaTimeout();  // Restart the timeout after successful validation
   } else {
@@ -118,6 +125,7 @@ function validcaptcha() {
     });
     responsiveVoice.speak("Invalid Captcha");
     confirm("Captcha is incorrect, please try again.");
+    timer();
     reloadCaptcha();
     startCaptchaTimeout();  // Restart the timeout after failed validation
   }
@@ -181,6 +189,12 @@ function validMathCaptcha() {
       button: "Proceed",
     });
     responsiveVoice.speak("Valid Captcha");
+    const userResponse = confirm("Captcha is correct! Do you want to proceed?");
+    if (userResponse === true) {
+
+      window.location.href = "login.html"
+    }
+    timer();
     reloadCaptcha();
     startCaptchaTimeout();  // Restart the timeout after successful validation
   } else {
@@ -191,6 +205,8 @@ function validMathCaptcha() {
       button: "Retry",
     });
     responsiveVoice.speak("Invalid Captcha");
+    confirm("Captcha is incorrect, please try again.");
+    timer();
     reloadCaptcha();
     startCaptchaTimeout();  // Restart the timeout after failed validation
   }
@@ -240,6 +256,7 @@ textCaptchaBtn.addEventListener("click" , () => {
   captchaType = "text";
   textCaptchaDiv.style.display = "block";
   mathCaptchaDiv.style.display = "none";
+  timer();
   reloadCaptcha();
   startCaptchaTimeout();
 });
@@ -248,6 +265,40 @@ mathCaptchaBtn.addEventListener("click" , () => {
   captchaType = "math";
   textCaptchaDiv.style.display = "none";
   mathCaptchaDiv.style.display = "block";
+  timer();
   reloadCaptcha();
   startCaptchaTimeout();
 });
+
+
+//Countdown timer for 25seconds
+function timer() {
+
+clearInterval(timerInterval);
+
+var seconds = 25;
+
+const ele = document.querySelector(`.countDownTimer.${captchaType}`);
+const timerText = document.querySelector(`.timerText.${captchaType}`);
+
+
+// Update the count down every 1 second
+timerInterval = setInterval(function () {
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  ele.innerHTML = `00 : ${seconds}s`;
+  ele.style.color = "rgb(21, 204, 61)";
+  timerText.style.color = "rgb(21, 204, 61)";
+
+  if (seconds <= 10) {
+    ele.style.color = "red";
+    timerText.style.color = "red";
+  }
+
+  if (seconds == 0) {
+    clearInterval(timerInterval);
+  }
+
+  seconds--;
+}, 1000);
+}
