@@ -131,7 +131,7 @@ function validcaptcha() {
       button: "Retry",
     });
     responsiveVoice.speak("Invalid Captcha");
-    confirm("Captcha is incorrect, please try again.");
+    
     reloadCaptcha();
     startCaptchaTimeout();  // Restart the timeout after failed validation
   }
