@@ -48,8 +48,8 @@ function startCaptchaTimeout() {
       userResponse = mathInput.value;  // Check the math CAPTCHA input
     }
 
+    // If no response is provided - alerts time is up
     if (!userResponse) {
-      // If no response is provided
       clearInterval(timerInterval);
 
       responsiveVoice.setDefaultVoice("US English Female");
@@ -72,6 +72,7 @@ function startCaptchaTimeout() {
   // Start countdown
   timerInterval = setInterval(function () {
     seconds = seconds < 10 ? "0" + seconds : seconds;
+    timerText.innerHTML = "Time Left :";
     ele.innerHTML = `00 : ${seconds}s`;
     ele.style.color = seconds <= 10 ? "red" : "rgb(21, 204, 61)";
     timerText.style.color = seconds <= 10 ? "red" : "rgb(21, 204, 61)";
@@ -138,7 +139,6 @@ function validcaptcha() {
   let val = input.value;
 
   if (val == "") {
-
     responsiveVoice.speak("Please enter the CAPTCHA");
     swal({
       title: "CAPTCHA NOT FOUND!",
@@ -150,32 +150,38 @@ function validcaptcha() {
 
     clearInterval(timerInterval);
     responsiveVoice.speak("Valid CAPTCHA");
+
     swal({
       title: "VALID CAPTCHA!",
-      text: "The captcha entered is valid!",
+      text: "The captcha entered is valid! Do you want to proceed?",
       icon: "success",
-      button: "Proceed",
-    }).then(() => {
-      const userResponse = confirm("Captcha is correct! Do you want to proceed?");
-      if (userResponse === true) {
-        window.location.href = "login.html";
-      } else {
-        reloadCaptcha();  // Reload the CAPTCHA
-        startCaptchaTimeout();  // Resume the timer after the alert
-      }
-    });
+      buttons: true,
+    })
+      .then((willProceed) => {
+        if (willProceed) {
+          window.location.href = "login.html";
+        }
+        reloadCaptcha();
+        startCaptchaTimeout();  // Restart the timeout after successful validation
+      });
+
+
+    // const userResponse = confirm("Captcha is correct! Do you want to proceed?");
+    // if (userResponse === true) {
+
+    //   window.location.href = "login.html"
+    // }
   } else {
 
     clearInterval(timerInterval);  // Pause the timer during validation
-
     responsiveVoice.speak("Invalid CAPTCHA");
+
     swal({
       title: "CAPTCHA INVALID!",
       text: "Please enter correct text!",
       icon: "error",
       button: "Retry",
     }).then(() => {
-      confirm("Captcha is incorrect, please try again.");
       reloadCaptcha();  // Reload CAPTCHA on failure
       startCaptchaTimeout();  // Resume the timer after the alert is dismissed
     });
@@ -227,6 +233,7 @@ function validMathCaptcha() {
 
   let val = mathInput.value;
   let correctAnswer = eval(mathCode.textContent);
+
   if (val == "") {
     responsiveVoice.speak("Please enter the value");
     swal({
@@ -236,36 +243,37 @@ function validMathCaptcha() {
       button: "Retry",
     });
   } else if (val == correctAnswer) {
+
     clearInterval(timerInterval);
     responsiveVoice.speak("Valid CAPTCHA");
     swal({
       title: "VALID CAPTCHA!",
-      text: "The value entered is correct!",
+      text: "The value entered is valid! Do you want to proceed?",
       icon: "success",
-      button: "Proceed",
-    }).then(() => {
-      const userResponse = confirm("Captcha is correct! Do you want to proceed?");
-      if (userResponse === true) {
-        window.location.href = "login.html";  // Redirect on successful validation
-      } else {
-        reloadCaptcha();  // Reload the CAPTCHA
-        startCaptchaTimeout();  // Resume the timer after the alert is dismissed
+      buttons: true,
+    }).then((willProceed) => {
+      if (willProceed) {
+        window.location.href = "login.html";
       }
+      reloadCaptcha();  // Reload the CAPTCHA
+      startCaptchaTimeout();  // Resume the timer after the alert is dismissed
     });
+
   } else {
 
     clearInterval(timerInterval);
-
     responsiveVoice.speak("Invalid CAPTCHA");
+
     swal({
       title: "CAPTCHA INVALID!",
       text: "Please enter correct value!",
       icon: "error",
       button: "Retry",
     }).then(() => {
-      confirm("Captcha is incorrect, please try again.");
+
       reloadCaptcha();  // Reload the CAPTCHA on failure
       startCaptchaTimeout();  // Resume the timer after the alert is dismissed
+
     });
   }
 }
@@ -326,4 +334,3 @@ mathCaptchaBtn.addEventListener("click", () => {
   reloadCaptcha();
   startCaptchaTimeout();
 });
-
