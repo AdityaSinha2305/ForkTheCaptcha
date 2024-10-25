@@ -59,5 +59,13 @@
     <footer>
       <p>&copy; 2024 ForkTheCaptcha. All rights reserved.</p>
     </footer>
+    <script>
+      const menuIcon = document.querySelector('.menu-icon');
+      const navLinks = document.querySelector('.nav-links');
+    
+      menuIcon.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+      });
+    </script>
   </body>
 </html>

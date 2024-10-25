@@ -24,14 +24,11 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Ensures the image covers the entire viewport */
     z-index: -1;
-    /* Places the image behind all other content */
 }
-.captcha-container
-{
-    /* min-width: 50%; */
-    /* max-width: 50%; */
+
+/* Captcha Container */
+.captcha-container {
     background: #FFF;
     display: flex;
     flex-direction: column;
@@ -48,13 +45,10 @@ body {
     text-align: center;
     border-radius: 20px 20px 0 0;
     padding: 15px;
-
 }
 
 .securityCode {
     width: 100%;
-    /*height: 250px;
-    /* background:url('assets/img2.jpg'); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -63,7 +57,6 @@ body {
     align-items: center;
     flex-direction: column;
     position: relative;
-    /* To control the position of inner elements */
 }
 
 .captchabg {
@@ -77,8 +70,6 @@ body {
 
 .securityCode p {
     text-align: center;
-    /*line-height: 250px;
-    /* color: #fff; */
     color: #e63e3e;
     font-family: "Montserrat", sans-serif;
     font-size: 5vw;
@@ -99,7 +90,7 @@ body {
 
 .icons .fas {
     color: #ffffff;
-    font-size: 1.rem;
+    font-size: 1.2rem;
     padding: 10px 5px;
     cursor: pointer;
     transition: 0.15s ease;
@@ -163,8 +154,7 @@ body {
     color: #ffffff;
 }
 
-#start-btn:hover
-{
+#start-btn:hover {
     background-color: #ffffff;
     color: #037AE2;
     border: solid #037AE2;
@@ -191,7 +181,6 @@ body {
     width: 100%;
 }
 
-
 .login-form {
     display: flex;
     flex-direction: column;
@@ -205,59 +194,60 @@ body {
     width: 100%;
 }
 
-.login-input{
+.login-input {
     padding: 8px;
 }
 
-.input-label{
+.input-label {
     font-size: 20px;
 }
 
-#login-button{
-    padding: 8px
+#login-button {
+    padding: 8px;
 }
 
 /* Responsive Behaviour */
 
 @media (max-width: 768px) {
-    body{
+    body {
         height: inherit;
         margin-top: 30%;
     }
 
-    .container-fluid{
+    .container-fluid {
         margin-left: 20px;
         margin-right: 20px;
     }
-    .header {
-        font-size: 1.5rem; /* Reduce header font size */
-    }
 
+    .header {
+        font-size: 1.5rem;
+    }
 
     #start-btn {
         font-size: 24px;
-        width: 250px; 
+        width: 250px;
     }
 
-    #instructions p{
-        font-size: 35px; 
+    #instructions p {
+        font-size: 35px;
     }
-    #code{
+
+    #code {
         font-size: 14vw;
     }
-   
 }
 
 @media (max-width: 480px) {
     .securityCode p {
-        font-size: 8vw; /* Further adjust for very small screens */
+        font-size: 8vw;
     }
 
     .icons .fas {
-        font-size: 1.2rem; /* Adjust icon size */
+        font-size: 1.2rem;
     }
 }
 
+/* Navbar Styling */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -269,7 +259,7 @@ body {
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 1000; /* Ensures the navbar stays on top */
+    z-index: 1000;
 }
 
 .navbar .logo a {
@@ -283,6 +273,8 @@ body {
     list-style: none;
     display: flex;
     gap: 20px;
+    padding: 0;
+    margin: 0;
 }
 
 .nav-links li {
@@ -300,7 +292,7 @@ body {
 }
 
 .menu-icon {
-    display: none; /* Hiding this for now, can be added later for mobile view */
+    display: none;
     cursor: pointer;
 }
 
@@ -309,11 +301,40 @@ body {
     color: white;
 }
 
-/* Padding for body to avoid overlap with fixed navbar */
-body {
-    padding-top: 100px; /* Adjust based on navbar height */
-    padding-bottom:100px;
+/* Responsive Navbar Styling */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #333;
+        width: 100%;
+        text-align: right;
+        padding-right: 30px;
+        gap: 10px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        padding: 10px;
+    }
 }
+
+/* Body padding to avoid navbar overlap */
+body {
+    padding-top: 100px;
+}
+
+/* Footer */
 footer {
     text-align: center;
     padding: 25px 20px;
@@ -324,36 +345,9 @@ footer {
     left: 0;
     width: 100%;
     box-sizing: border-box;
-    margin-top: 100px;
 }
 
-
-/* Responsive Behaviour */
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start; /* Align items to the start */
-        padding: 10px;
-    }
-
-    .nav-links {
-        flex-direction: column; /* Stack links vertically */
-        width: 100%;
-        padding: 10px 0;
-    }
-
-    .nav-links li {
-        margin: 5px 0; /* Add space between links */
-    }
-
-    .navbar .logo a {
-        font-size: 20px; /* Adjust logo size for smaller screens */
-    }
-    
-    .menu-icon {
-        display: block; /* Show menu icon for smaller screens */
-    }
-
     footer {
         font-size: 14px;
     }
@@ -365,21 +359,20 @@ footer {
     }
 
     .navbar .logo a {
-        font-size: 18px; /* Further adjust logo size */
+        font-size: 18px;
     }
 
     .nav-links a {
-        font-size: 16px; /* Adjust link font size */
+        font-size: 16px;
     }
 
     #start-btn {
-        font-size: 24px; /* Adjust start button size */
-        width: 250px; 
+        font-size: 24px;
+        width: 250px;
     }
 }
 
-
-
+/* Toggle Menu Styling */
 .toggleMenu {
     display: flex;
     flex-direction: row;
@@ -400,7 +393,7 @@ footer {
     text-align: center;
     cursor: pointer;
     border: none;
-    transition: all 0.1s ease-in-out; 
+    transition: all 0.1s ease-in-out;
     border: 4px solid transparent;
     border-radius: 10px;
 }
