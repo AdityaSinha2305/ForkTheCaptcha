@@ -11,6 +11,20 @@ const readMathBtn = document.querySelector("#readMath");
 const submitMathBtn = document.querySelector("#submitMathBtn");
 const changeMathBtn = document.querySelector("#changeMathBtn");
 
+function updateVisitorCount() {
+  const countElement = document.getElementById('count');
+  let visitCount = localStorage.getItem('visitCount');
+
+  if (visitCount) {
+      visitCount = parseInt(visitCount) + 1;
+      localStorage.setItem('visitCount', visitCount);
+  } else {
+      visitCount = 1;
+      localStorage.setItem('visitCount', visitCount);
+  }
+  countElement.textContent = visitCount;
+}
+document.addEventListener("DOMContentLoaded", updateVisitorCount);
 
 let captchaType = "text";
 
