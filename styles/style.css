@@ -33,12 +33,12 @@ body {
     background: linear-gradient(45deg, #4CAF50, #2196F3);
     color: #fff;
     text-align: center;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 8px 16px;
+    border-radius: 8px;
     font-size: 1.2rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    margin: 20px auto;
-    width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 10px auto;
+    width: fit-content;
     transition: transform 0.3s;
 }
 
