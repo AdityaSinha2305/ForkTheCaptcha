@@ -30,10 +30,10 @@ body {
 }
 
 .visitor-count {
-    background: linear-gradient(45deg, #4CAF50, #2196F3);
+    background: linear-gradient(45deg, #013103, #02223c);
     color: #fff;
     text-align: center;
-    padding: 8px 16px;
+    padding: 2px 16px;
     border-radius: 8px;
     font-size: 1.2rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
