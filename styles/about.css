@@ -1,3 +1,4 @@
+/* General navbar styling */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -44,6 +45,18 @@
   color: #ddd;
 }
 
+/* Menu icon styling */
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-icon i {
+  color: white;
+  font-size: 24px; /* Icon size */
+}
+
+/* Responsive navbar styles */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -58,25 +71,16 @@
     gap: 10px;
   }
 
+  .nav-links.show {
+    display: flex;
+  }
+
   .menu-icon {
     display: block;
   }
-
-  .navbar .logo {
-    font-size: 20px;
-  }
 }
 
-.menu-icon {
-  display: none;
-  cursor: pointer;
-}
-
-.menu-icon i {
-  color: white;
-  font-size: 24px;
-}
-
+/* Container styles */
 .container {
   padding: 100px 30px;
   text-align: center;
@@ -112,31 +116,17 @@
   margin-bottom: 25px;
 }
 
-.project-features-title {
-  font-size: 1.8rem;
-  color: #2c3e50;
-  margin-bottom: 15px;
-}
-
-.project-features-list {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.project-feature-item {
-  font-size: 1rem;
-  color: #4a4a4a;
-  margin-bottom: 10px;
-  padding-left: 20px;
-  position: relative;
-}
-
-.project-feature-item:before {
-  content: "✔";
-  color: #3498db; /* Checkmark color */
-  position: absolute;
+/* Footer styles */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  bottom: 0;
   left: 0;
-  font-size: 1.2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
@@ -156,65 +146,9 @@
   .project-features-title {
     font-size: 1.5rem;
   }
-}
 
-footer {
-  text-align: center;
-  padding: 20px 0;
-  background-color: #333;
-  color: white;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
   footer {
     font-size: 14px;
-  }
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background-color: #333;
-    padding: 10px;
-    width: 100%;
-    gap: 10px;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .menu-icon {
-    display: block;
-  }
-
-  .navbar .logo a {
-    font-size: 20px;
-  }
-
-  .about h1 {
-    font-size: 26px;
-  }
-
-  .about p {
-    font-size: 16px;
-  }
-
-  .about ul li {
-    font-size: 16px;
-  }
-
-  .container {
-    padding: 80px 20px;
   }
 }
 
@@ -227,15 +161,12 @@ footer {
     padding: 15px 0;
   }
 
-  .about h1 {
+  .about-title {
     font-size: 24px;
   }
 
-  .about p {
-    font-size: 14px;
-  }
-
-  .about ul li {
+  .about-description,
+  .project-feature-item {
     font-size: 14px;
   }
 

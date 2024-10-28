@@ -2,6 +2,8 @@
 const repoOwner = "AdityaSinha2305"; // Replace with your repo owner
 const repoName = "ForkTheCaptcha"; // Replace with your repository name
 const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contributors`;
+const menuIcon = document.querySelector('.menu-icon');
+const navLinks = document.querySelector('.nav-links');
 
 // Function to fetch contributors and display them
 async function fetchContributors() {
@@ -18,6 +20,13 @@ async function fetchContributors() {
       "<p>Failed to load contributors.</p>";
   }
 }
+
+
+
+// Function to toggle on 3 dots
+menuIcon.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+});
 
 // Function to display contributors
 function displayContributors(contributors) {

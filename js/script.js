@@ -10,6 +10,8 @@ const mathInput = document.querySelector("#mathInput");
 const readMathBtn = document.querySelector("#readMath");
 const submitMathBtn = document.querySelector("#submitMathBtn");
 const changeMathBtn = document.querySelector("#changeMathBtn");
+const menuIcon = document.querySelector('.menu-icon');
+const navLinks = document.querySelector('.nav-links');
 
 function updateVisitorCount() {
   const countElement = document.getElementById('count');
@@ -45,7 +47,14 @@ function reloadCaptcha() {
 }
 
 
-// Function to start and handle CAPTCHA timeout along with the countdown timer
+
+// Function to toggle on 3 dots
+menuIcon.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+});
+
+// Function to start the timeout for refreshing the CAPTCHA after 25 seconds
+
 function startCaptchaTimeout() {
   clearInterval(timerInterval);  // Clear any existing interval
 
