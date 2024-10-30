@@ -243,3 +243,74 @@ footer {
     padding: 60px 15px;
   }
 }
+
+
+
+/* Contribution code css */
+
+body {
+  background-color: #f9f9f9;
+  display: flex;          /* makes the body a flex container */
+  justify-content: center;      /* horizontally centers the content within the body */
+  align-items: center;        /* vertically centers the content */
+  min-height: 100vh;          /* ensures that the body fills the full viewport height, so the div stays centered on the screen. */
+  margin: 0;
+}
+
+.contribution-guide {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 800px;
+  width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 85px;
+  margin-bottom: 40px;
+}
+
+h2 {
+  color: #333;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+ol {
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.step {
+  color: #3b82f6;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-right: 5px;
+}
+
+
+pre {
+  background-color: #eef2ff;
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 5px;
+  color: #3b82f6;
+  font-family: "Courier New", Courier, monospace;
+  overflow-x: auto;
+}
+
+code {
+  background-color: #f3f3f3;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: #d31775;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* 
+pre code {
+  color: inherit;
+} */
