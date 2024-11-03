@@ -80,7 +80,8 @@
 .container {
   padding: 100px 30px;
   text-align: center;
-  background-color: #f3f4f6; /* Light background for contrast */
+  /* background-color: #f3f4f6;   */ /*Light background for contrast*/
+  background-color: #f6ecab;
 }
 
 .about {
@@ -249,7 +250,8 @@ footer {
 /* Contribution code css */
 
 body {
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
+  background-color: #c2eaf7 ;
   display: flex;          /* makes the body a flex container */
   justify-content: center;      /* horizontally centers the content within the body */
   align-items: center;        /* vertically centers the content */
