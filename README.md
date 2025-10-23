@@ -14,7 +14,7 @@ CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Ap
 ## 🌟 Features
 - Dynamically generated CAPTCHA.
 - Simple and clean UI.
-- Designed for beginners to learn and contribute during Hacktoberfest 2024!
+- Designed for beginners to learn and contribute during Hacktoberfest 2025!
 
 <br> 
 
