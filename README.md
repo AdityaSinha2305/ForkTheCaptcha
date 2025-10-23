@@ -143,7 +143,7 @@ To help you get started quickly, we label issues with:
 
 <br>
 
-## 🎉 Hacktoberfest 2024
+## 🎉 Hacktoberfest 2025
 This project is participating in Hacktoberfest 2024. Contribute to this repository and don't forget to register at [hacktoberfest.com](https://hacktoberfest.com/) and start submitting pull requests.
 
 To make a valid contribution during Hacktoberfest:
