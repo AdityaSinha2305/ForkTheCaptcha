@@ -2,7 +2,7 @@
 
 Welcome to ForkTheCaptcha! 🎉
 <br>
-This repository is a simple web project made with HTML, CSS, and JavaScript where a CAPTCHA is displayed to verify user interaction. Feel free to explore, contribute, and fork it for Hacktoberfest 2024! 🚀
+This repository is a simple web project made with HTML, CSS, and JavaScript where a CAPTCHA is displayed to verify user interaction. Feel free to explore, contribute, and fork it for Hacktoberfest 2025! 🚀
 
 <br>
 
@@ -144,7 +144,7 @@ To help you get started quickly, we label issues with:
 <br>
 
 ## 🎉 Hacktoberfest 2025
-This project is participating in Hacktoberfest 2024. Contribute to this repository and don't forget to register at [hacktoberfest.com](https://hacktoberfest.com/) and start submitting pull requests.
+This project is participating in Hacktoberfest 2025. Contribute to this repository and don't forget to register at [hacktoberfest.com](https://hacktoberfest.com/) and start submitting pull requests.
 
 To make a valid contribution during Hacktoberfest:
 1. Fork the repo and make at least four valid pull requests (PRs) in the month of October.
