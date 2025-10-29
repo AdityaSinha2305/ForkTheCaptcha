@@ -355,10 +355,17 @@ footer {
         padding: 10px;
     }
 
+    /* Hide links by default on mobile */
     .nav-links {
+        display: none;
         flex-direction: column; /* Stack links vertically */
         width: 100%;
         padding: 10px 0;
+    }
+
+    /* Show when toggled */
+    .nav-links.show {
+        display: flex;
     }
 
     .nav-links li {
