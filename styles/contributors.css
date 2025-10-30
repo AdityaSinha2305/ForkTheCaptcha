@@ -67,18 +67,6 @@
 }
 
 
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #333;
-    color: white;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-}
-
 @media (max-width: 768px) {
     footer {
         font-size: 14px;
@@ -225,8 +213,7 @@ footer {
     padding: 20px 0;
     background-color: #333;
     color: white;
-    position: fixed;
-    bottom: 0;
+    position: relative;
     left: 0;
     width: 100%;
     box-sizing: border-box;
